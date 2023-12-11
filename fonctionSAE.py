@@ -1,163 +1,152 @@
-tab = [2020,752,1713,816,1438,1503,737,1943,907,1527,2050,746,1345,627,829,1647,1655,1901,1040,1410,1548,2124,633,1016,1211,1702,916,1032,1912,2002,1204,1907,1302,2156,726,1319,1427,1510,1826,1924,]
+import random
 
-def trie_bulle(tab):
-    compt=0
-    n = len(tab)-1
-    compt=compt+1
-    trie = False
-    compt=compt+1
+tab1_10 = []
+tab2_10 = []
+tab3_10 = []
+tab4_10 = []
+tab5_10 = []
+tab6_10 = []
+tab7_10 = []
+tab8_10 = []
+tab9_10 = []
+tab10_10 = []
+
+tab1_500 = []
+tab2_500 = []
+tab3_500 = []
+tab4_500 = []
+tab5_500 = []
+tab6_500 = []
+tab7_500 = []
+tab8_500 = []
+tab9_500 = []
+tab10_500 = []
+
+tab1_5000 = []
+tab2_5000 = []
+tab3_5000 = []
+tab4_5000 = []
+tab5_5000 = []
+tab6_5000 = []
+tab7_5000 = []
+tab8_5000 = []
+tab9_5000 = []
+tab10_5000 = []
+
+tab_10 = [tab1_10, tab2_10, tab3_10, tab4_10, tab5_10, tab6_10, tab7_10, tab8_10, tab9_10, tab10_10]
+tab_500 = [tab1_500, tab2_500, tab3_500, tab4_500, tab5_500, tab6_500, tab7_500, tab8_500, tab9_500, tab10_500]
+tab_5000 = [tab1_5000, tab2_5000, tab3_5000, tab4_5000, tab5_5000, tab6_5000, tab7_5000, tab8_5000, tab9_5000, tab10_5000]
+
+i = 0
+while i < 10:
+    tab_10[i].append(random.randint(0, 100))
+    i += 1
+
+i = 0
+while i < 500:
+    j = 0
+    while j < 10:
+        tab_500[j].append(random.randint(0, 100))
+        j += 1
+    i += 1
+
+i = 0
+while i < 5000:
+    j = 0
+    while j < 10:
+        tab_5000[j].append(random.randint(0, 100))
+        j += 1
+    i += 1
 
 
-    while (n > 0) and not trie:
-        trie = True
-        compt=compt+1
-        i = 0
-        compt=compt+1
-
-        while i < n:
-            compt=compt+1
-
-            if tab[i] > tab[i+1]:
-                compt=compt+1
-
-                tmp = tab[i]   
-                compt=compt+1
-
-                tab[i]=tab[i+1]
-                compt=compt+1
-
-                tab[i+1]=tmp
-                compt=compt+1
-
-                trie = False
-                compt=compt+1
-
-            i=i+1 
-            compt=compt+1
-
-        n=n-1
-        compt=compt+1
-
-    print(tab,compt)
-    return(tab)
-
-#trie_bulle(tab)
-
-def trie_1(tab):
-    compt=0
-    n = len(tab)
-    compt=compt+1
+def tri_selection(tab):
+    compteur = 0
     i = 0
-    compt=compt+1
-    while i < n - 1:
-        compt=compt+1
-        min_index = i
-        compt=compt+1
+    j = 0
+    compteur += 2
+    while i < len(tab) - 1:
+        min = i
         j = i + 1
-        compt=compt+1
-        while j < n:
-            compt=compt+1
-            if tab[j] < tab[min_index]:
-                compt=compt+1
-                min_index = j
-                compt=compt+1
-            j = j + 1
-            compt=compt+1
+        compteur += 5
+        while j < len(tab):
+            compteur += 1
+            if tab[j] < tab[min]:
+                min = j
+                compteur += 2
+            j += 1
+            compteur += 2
 
-        
+        compteur += 1
         tmp = tab[i]
-        compt=compt+1
-        tab[i] = tab[min_index]
-        compt=compt+1
-        tab[min_index] = tmp
-        compt=compt+1
+        tab[i] = tab[min]
+        tab[min] = tmp
+        i += 1
+        compteur += 5
 
-        i = i + 1
-        compt=compt+1
-        
-    print(tab,compt)
-    return tab
-
-trie_1(tab)
+    compteur += 1
+    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
+    return compteur
 
 
+def recherche_dicho(tab: [int], e: int):
+    compteur = 0
 
-def insere_trie(tab,i):
-    compt1=0
-    v = tab[i]
-    compt1=compt1+1
-    j = i-1
-    compt1=compt1+1
-    while j >= 0 and tab[j] > v :
-        compt1=compt1+1
-        tab[j+1] = tab[j]
-        compt1=compt1+1
-        j = j-1
-        compt1=compt1+1
-    tab[j+1]=v
-    compt1=compt1+1
+    deb = 0
+    fin = len(tab) - 1
+    ind = -1
 
-    return compt1
-   
-    
-def trie_insertion(tab):
-    compt=0
- 
-    n = len(tab)
-    compt=compt+1
-    i = 1 
-    compt=compt+1
-    while i < n:
-        compt=compt+1
-        compt1=insere_trie(tab, i)
-        
-        compt=compt1 +compt
-        i = i + 1
+    compteur += 4
 
-       
-    
-    print(tab,compt)
-    return tab
- 
-trie_insertion(tab)
+    while deb <= fin:
+        millieu = (fin + deb) // 2
 
+        compteur += 4
 
-
-def recherche_dicho(tab,ind):
-    val = ind
-    i = 2
-    n = len(tab)//2
-    t = True
-    
-    
-    if ind == n and n != tab[0] :
-        ind = n - 1
-        t = False
-        
-    if ind == tab[0] :
-        ind = 0
-        t = False
-        
-    
-        
-    while t:
-        if tab[n] == ind:
-            ind = n
-            t = False
-            
+        if tab[millieu] < e:
+            deb = millieu + 1
+            compteur += 3
+        elif tab[millieu] > e:
+            fin = millieu - 1
+            compteur += 4
         else:
-            if tab[n] < ind:
-                n = n + (n//i)
-                i = i + 2
-            else:
-                n = n - (n//2)
-                i = i + 2
-    
-            
-    
-    
-    print(val,"se trouve à l'indice :",ind)
-    return(ind)
+            ind = millieu
+            compteur += 3
+            print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
+            return
+    compteur += 1
+    print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
+    return ind
 
 
-recherche_dicho(tab,1702)
+# Tri par recherche pour trouver le nom ou la compagnie
+# tab 10 :
+# tab 500 :
+# tab 5000 :
+def recherche_cour(tab: [int], e: int):
+    n = len(tab)
+    ind = 0
+    i = 0
+    while i < n and tab[ind] != e:
+        ind = ind + 1
+        i += 1
+    return ind
+
+print(f"tab_10 : ")
+calcul = 0
+for i in tab_10:
+    calcul = calcul + tri_selection(i)
+print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
+
+
+print(f"tab_500 : ")
+calcul = 0
+for i in tab_500:
+    calcul = calcul + tri_selection(i)
+print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
+
+
+print(f"tab_5000 : ")
+calcul = 0
+for i in tab_5000:
+    calcul = calcul + tri_selection(i)
+print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
