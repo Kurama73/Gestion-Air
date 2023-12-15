@@ -2,23 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_PASSENGERS 10
 #define MAX_FLIGHTS 100
+#define MAX_PASSENGERS_PER_FLIGHT 100
 
 struct Passager
 {
-    char nom[20];
-    char prenom[20];
+    char nom[50];
+    char prenom[50];
     char date_naissance[11];
-    int numero_comptoir;
-    float prix_ticket;
+    int numero_siege;
+    float prix_billet;
 };
 
 struct Vol
 {
     int numero_vol;
-    char compagnie[30];
-    char destination[30];
+    char compagnie[50];
+    char destination[50];
     int numero_comptoir;
     int heure_debut_enregistrement;
     int heure_fin_enregistrement;
@@ -27,35 +27,41 @@ struct Vol
     int heure_fin_embarquement;
     int heure_decollage;
     char etat_vol[20];
-    struct Passager liste_passagers[MAX_PASSENGERS];
     int nombre_passagers;
+    struct Passager passagers[MAX_PASSENGERS_PER_FLIGHT];
 };
 
-void afficherVols(struct Vol tableau_vols[], int nombre_vols);
-void rechercherVol(struct Vol tableau_vols[], int nombre_vols);
-void afficherEmbarquement(struct Vol tableau_vols[], int nombre_vols);
+void afficherTableau(struct Vol tableau_vols[], int nombre_vols);
+void afficherPassagers(struct Vol tableau_vols[], int numero_vol);
 
 int main()
 {
+    char ligne[1024];  // Supposons que la longueur maximale d'une ligne est de 1024 caractères
     char* nom_fichier = "data_vols.csv";
-    FILE* pointeur_fichier = NULL;
-    struct Vol tableau_vols[MAX_FLIGHTS];
-    int nombre_vols = 0;
+    FILE* pt_fichier = fopen(nom_fichier, "r");
 
-    // Open file
-    pointeur_fichier = fopen(nom_fichier, "r");
-    if (pointeur_fichier == NULL)
+    if (pt_fichier == NULL)
     {
         printf("\n%s Open Failed", nom_fichier);
-        return 1; // Exit the program if the file cannot be opened
+        return 1; // Arrêt en cas d'erreur d'ouverture
     }
 
-    // Read file
-    char ligne[1024];  // Assumption: Maximum line length is 1024 characters
-    while (fgets(ligne, sizeof(ligne), pointeur_fichier) != NULL)
+    // Ignorer la première ligne (en-têtes)
+    if (fgets(ligne, sizeof(ligne), pt_fichier) == NULL) {
+        fclose(pt_fichier);
+        return 1; // Gérer le cas où le fichier est vide ou ne contient pas d'en-têtes
+    }
+
+    struct Vol tableau_vols[MAX_FLIGHTS];
+
+    int nombre_vols = 0;  // Initialiser le nombre de vols
+
+    // Lire le CSV
+    while (fgets(ligne, sizeof(ligne), pt_fichier) != NULL && nombre_vols < MAX_FLIGHTS)
     {
-        // Process each line using sscanf
-        sscanf(ligne, "%d,%29[^,],%29[^,],%d,%d,%d,%d,%d,%d,%d,%19[^,],%*[^\"\"]\"%*[^\"]\"%[^\"]",
+        // Lire ligne par ligne
+        char liste_passagers[1000];
+        sscanf(ligne, "%d,%29[^,],%29[^,],%d,%d,%d,%d,%d,%d,%d,%19[^,],\"%999[^\"]\"",
                &tableau_vols[nombre_vols].numero_vol,
                tableau_vols[nombre_vols].compagnie,
                tableau_vols[nombre_vols].destination,
@@ -67,114 +73,107 @@ int main()
                &tableau_vols[nombre_vols].heure_fin_embarquement,
                &tableau_vols[nombre_vols].heure_decollage,
                tableau_vols[nombre_vols].etat_vol,
-               tableau_vols[nombre_vols].liste_passagers);
+               liste_passagers);
 
-        // Extract passenger details separately
-        char* passagers = strchr(ligne, '\"');
-        if (passagers != NULL)
+        // Extraire les informations des passagers
+        char *passager = strtok(liste_passagers, ";");
+        int i = 0;
+        while (passager != NULL && i < MAX_PASSENGERS_PER_FLIGHT)
         {
-            sscanf(passagers, "\"%[^\"]\"", tableau_vols[nombre_vols].liste_passagers);
+            sscanf(passager, "%29[^,],%29[^,],%10[^,],%d,%f",
+                   tableau_vols[nombre_vols].passagers[i].nom,
+                   tableau_vols[nombre_vols].passagers[i].prenom,
+                   tableau_vols[nombre_vols].passagers[i].date_naissance,
+                   &tableau_vols[nombre_vols].passagers[i].numero_siege,
+                   &tableau_vols[nombre_vols].passagers[i].prix_billet);
+
+            passager = strtok(NULL, ";");
+            i++;
         }
 
-        // Count the number of passengers
-        tableau_vols[nombre_vols].nombre_passagers = 0;
-        char* passager_token = strtok(tableau_vols[nombre_vols].liste_passagers, ";");
-        while (passager_token != NULL && tableau_vols[nombre_vols].nombre_passagers < MAX_PASSENGERS)
-        {
-            sscanf(passager_token, "%19[^,],%19[^,],%19[^,],%d,%f",
-                   tableau_vols[nombre_vols].liste_passagers[tableau_vols[nombre_vols].nombre_passagers].nom,
-                   tableau_vols[nombre_vols].liste_passagers[tableau_vols[nombre_vols].nombre_passagers].prenom,
-                   tableau_vols[nombre_vols].liste_passagers[tableau_vols[nombre_vols].nombre_passagers].date_naissance,
-                   &tableau_vols[nombre_vols].liste_passagers[tableau_vols[nombre_vols].nombre_passagers].numero_comptoir,
-                   &tableau_vols[nombre_vols].liste_passagers[tableau_vols[nombre_vols].nombre_passagers].prix_ticket);
-
-            passager_token = strtok(NULL, ";");
-            tableau_vols[nombre_vols].nombre_passagers++;
-        }
+        tableau_vols[nombre_vols].nombre_passagers = i;
 
         nombre_vols++;
-
-        if (nombre_vols >= MAX_FLIGHTS)
-        {
-            printf("Warning: Too many flights in the file. Increase the size of the array if needed.\n");
-            break;
-        }
     }
 
-    // Close file
-    fclose(pointeur_fichier);
+    // Fermer le fichier CSV
+    fclose(pt_fichier);
 
-    // Menu principal
     int choix;
-    do
-    {
-        printf("\nMenu Principal\n");
-        printf("0 - Quitter\n");
-        printf("1 - Afficher panneau\n");
-        printf("2 - Rechercher un vol\n");
-        printf("3 - Afficher panneau embarquement\n");
-        printf("Votre choix : ");
+    do {
+        // Affichage du menu
+        printf("\nMenu:\n");
+        printf("0- Quitter\n");
+        printf("1- Afficher le tableau des vols\n");
+        printf("2- Afficher les passagers d'un vol\n");
+        printf("Choix : ");
         scanf("%d", &choix);
 
-        switch (choix)
-        {
-        case 1:
-            afficherVols(tableau_vols, nombre_vols);
-            break;
-        case 2:
-            rechercherVol(tableau_vols, nombre_vols);
-            break;
-        case 3:
-            afficherEmbarquement(tableau_vols, nombre_vols);
-            break;
-        case 0:
-            printf("Programme terminé.\n");
-            break;
-        default:
-            printf("Choix invalide. Veuillez réessayer.\n");
+        switch (choix) {
+            case 0:
+                // Quitter
+                break;
+            case 1:
+                // Afficher le tableau des vols
+                afficherTableau(tableau_vols, nombre_vols);
+                break;
+            case 2:
+                // Afficher les passagers d'un vol
+                printf("Entrez le numéro du vol : ");
+                int numero_vol;
+                scanf("%d", &numero_vol);
+                afficherPassagers(tableau_vols, numero_vol);
+                break;
+            default:
+                printf("Choix non valide. Veuillez réessayer.\n");
         }
+
     } while (choix != 0);
 
     return 0;
 }
 
-void afficherVols(struct Vol tableau_vols[], int nombre_vols)
+void afficherTableau(struct Vol tableau_vols[], int nombre_vols)
 {
+    printf("Tableau des vols :\n");
+    printf("====================================================================================================================================\n");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers |\n");
+    printf("====================================================================================================================================\n");
+
     for (int i = 0; i < nombre_vols; i++)
     {
-        printf("Vol %d\t", tableau_vols[i].numero_vol);
-        printf("Compagnie: %s\t", tableau_vols[i].compagnie);
-        printf("Destination: %s\t", tableau_vols[i].destination);
-        printf("Numero de comptoir: %d\t", tableau_vols[i].numero_comptoir);
-        printf("Heure debut enregistrement: %d\t", tableau_vols[i].heure_debut_enregistrement);
-        printf("Heure fin enregistrement: %dt", tableau_vols[i].heure_fin_enregistrement);
-        printf("Salle embarquement: %d\t", tableau_vols[i].salle_embarquement);
-        printf("Heure debut embarquement: %d\t", tableau_vols[i].heure_debut_embarquement);
-        printf("Heure fin embarquement: %d\t", tableau_vols[i].heure_fin_embarquement);
-        printf("Heure decollage: %d\t", tableau_vols[i].heure_decollage);
-        printf("Etat du vol: %s\t", tableau_vols[i].etat_vol);
-
-        printf("Passagers:\n");
-        for (int j = 0; j < tableau_vols[i].nombre_passagers; j++)
-        {
-            printf("  Nom: %s, Prenom: %s, Date de naissance: %s, Numero de comptoir: %d, Prix du ticket: %.2f\n",
-                   tableau_vols[i].liste_passagers[j].nom,
-                   tableau_vols[i].liste_passagers[j].prenom,
-                   tableau_vols[i].liste_passagers[j].date_naissance,
-                   tableau_vols[i].liste_passagers[j].numero_comptoir,
-                   tableau_vols[i].liste_passagers[j].prix_ticket);
-        }
-
-        printf("\n");
+        printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
+               tableau_vols[i].numero_vol,
+               tableau_vols[i].compagnie,
+               tableau_vols[i].destination,
+               tableau_vols[i].numero_comptoir,
+               tableau_vols[i].heure_debut_enregistrement,
+               tableau_vols[i].heure_fin_enregistrement,
+               tableau_vols[i].salle_embarquement,
+               tableau_vols[i].heure_debut_embarquement,
+               tableau_vols[i].heure_fin_embarquement,
+               tableau_vols[i].heure_decollage,
+               tableau_vols[i].etat_vol,
+               tableau_vols[i].nombre_passagers);
     }
 }
 
-void rechercherVol(struct Vol tableau_vols[], int nombre_vols)
+void afficherPassagers(struct Vol tableau_vols[], int numero_vol)
 {
+    printf("\nPassagers du vol %d :\n", numero_vol);
+    printf("===========================================================\n");
+    printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
+    printf("===========================================================\n");
 
+    for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
+    {
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+               tableau_vols[numero_vol - 1].passagers[i].nom,
+               tableau_vols[numero_vol - 1].passagers[i].prenom,
+               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].numero_siege,
+               tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+    }
 }
 
-void afficherEmbarquement(struct Vol tableau_vols[], int nombre_vols)
-{
-
-}
+//faire les fonctions pour le panneau d'information

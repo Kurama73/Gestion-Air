@@ -1,5 +1,10 @@
 # depslib dependency file v1.0
-1702060164 source:c:\cours\gestionair\c\main.c
+1702654598 source:c:\cours\gestionair\c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1702653422 source:c:\cours\gestionair\c\test.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
