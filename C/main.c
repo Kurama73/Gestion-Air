@@ -36,12 +36,15 @@ struct Vol
 
 // Prototypes des fonctions
 void structure(struct Vol tableau_vols[], int *nombre_vols);
-void menu(struct Vol tableau_vols[], int nombre_vols);
+void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers);
 void tableau_information(struct Vol tableau_vols[], int nombre_vols);
 void afficherPassagers(struct Vol tableau_vols[], int numero_vol);
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols);
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
+void trieprix (struct Vol tableau_vols[],int numero_vol);
+
+ void trienom(struct Vol tableau_vols[], int numero_vol);
 
 // Fonction principale
 int main()
@@ -49,12 +52,13 @@ int main()
     // Déclaration d'un tableau de structures de type Vol
     struct Vol tableau_vols[MAX_FLIGHTS];
     int nombre_vols = 0;
+    int nombre_passagers = 0;
 
     // Charger les données à partir du CSV
     structure(tableau_vols, &nombre_vols);
 
     // Afficher le menu
-    menu(tableau_vols, nombre_vols);
+    menu(tableau_vols, nombre_vols, nombre_passagers);
 
     return 0;
 }
@@ -131,7 +135,7 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
 }
 
 // Afficher le menu principal
-void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
+void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TOM
 {
     int choix;
 
@@ -144,6 +148,9 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
         printf("1- Afficher le tableau des vols\n");
         printf("2- Rechercher un vol\n");
         printf("3- Afficher les passagers d'un vol\n");
+        printf("4- Trier les billets par prix\n ");
+
+        printf("6- trier alphabetiquement les noms");
         printf("Choix : ");
         scanf("%d", &choix);
 
@@ -173,6 +180,9 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
                 printf("1- Afficher les heures d'un vol\n");
                 printf("2- Afficher les destinations d'un vol\n");
                 printf("3- Afficher les compagnies\n");
+                printf("4- Trier les billets par prix\n ");
+
+                printf("6- trier alphabetiquement les noms");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);
 
@@ -201,6 +211,14 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
                     afficherCompagnie(tableau_vols, nombre_vols);
                     break;
 
+                case 4:
+                    // Trier les billets
+                    trieprix(tableau_vols, nombre_vols);
+                    break;
+
+
+
+
                 default:
                     printf("Choix non valide. Veuillez réessayer.\n");
                 }
@@ -218,6 +236,16 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
             afficherPassagers(tableau_vols, numero_vol);
             break;
 
+        case 4:
+            trieprix(tableau_vols, nombre_vols);
+            break;
+
+        case 6:
+            // trie alphabetiquement par nom
+            trienom(tableau_vols, numero_vol);
+            break;
+
+
         default:
             printf("Choix non valide. Veuillez réessayer.\n");
         }
@@ -230,10 +258,10 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
 // Fonction pour afficher le tableau d'information
 void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
 {
-    // Définir l'heure actuelle (par exemple, 07:00)
-    int heureActuelle = 700; // 07:00
+    // Définir l'heure actuelle
+    int heureActuelle = 1900;
 
-    printf("Tableau des vols dans les 3 heures suivantes à partir de %02d:%02d:\n", heureActuelle / 100, heureActuelle % 100);
+    printf("Tableau des vols dans les 3 heures suivantes à partir de %02d:%02d :\n", heureActuelle / 100, heureActuelle % 100);
     printf("===============================================================================================================================================================\n");
     printf("| Heure Decollage  | No Vol | Compagnie              | Destination            | Comptoir | Enregistrement | Salle Emb. | Embarquement         | Etat vol\n");
     printf("===============================================================================================================================================================\n");
@@ -251,7 +279,7 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
                    tableau_vols[i].destination);
 
             // Afficher le comptoir et les heures d'enregistrement si dans la plage spécifiée
-            if (heureActuelle - 30 <= tableau_vols[i].heure_fin_enregistrement && heureActuelle + 10 >= tableau_vols[i].heure_debut_enregistrement)
+            if (tableau_vols[i].heure_debut_enregistrement - 30 < heureActuelle && heureActuelle + 10 >= tableau_vols[i].heure_fin_enregistrement)
             {
                 printf(" %-8d | %02d:%02d - %02d:%02d  |",
                        tableau_vols[i].numero_comptoir,
@@ -267,7 +295,7 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
             }
 
             // Afficher la salle d'embarquement et les heures d'embarquement si dans la plage spécifiée
-            if (heureActuelle - 30 <= tableau_vols[i].heure_fin_embarquement && heureActuelle + 10 >= tableau_vols[i].heure_debut_embarquement)
+            if (tableau_vols[i].heure_debut_embarquement - 30 < heureActuelle && heureActuelle + 10 >= tableau_vols[i].heure_fin_embarquement)
             {
                 printf(" %-10d | %02d:%02d - %02d:%02d        |",
                        tableau_vols[i].salle_embarquement,
@@ -408,3 +436,128 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
         printf("Aucune compagnie de ce nom.\n");
 }
 
+void trieprix(struct Vol tableau_vols[], int numero_vol)
+{
+    int i, j, min;
+    struct Passager tmp_passager;
+
+    int nombre_passagers = tableau_vols[numero_vol - 1].nombre_passagers;
+
+    for (i = 0; i < nombre_passagers - 1; i++)
+    {
+        min = i;
+
+        for (j = i + 1; j < nombre_passagers; j++)
+        {
+            if (tableau_vols[numero_vol - 1].passagers[j].prix_billet > tableau_vols[numero_vol - 1].passagers[min].prix_billet)
+            {
+                min = j;
+            }
+        }
+
+        // Échange des passagers (et non des prix directement)
+        tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
+        tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
+        tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
+    }
+
+    // Affichage des passagers triés
+    printf("\nPassagers du vol %d (triés par prix) :\n", numero_vol);
+    printf("===========================================================\n");
+    printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
+    printf("===========================================================\n");
+
+    for (i = 0; i < nombre_passagers; i++)
+    {
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+               tableau_vols[numero_vol - 1].passagers[i].nom,
+               tableau_vols[numero_vol - 1].passagers[i].prenom,
+               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].numero_siege,
+               tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+    }
+}
+
+/*void trieage(struct Vol tableau_vols[], int numero_vol)
+{
+    int i, j, min;
+    struct Passager tmp_passager;
+
+    int nombre_passagers = tableau_vols[numero_vol - 1].nombre_passagers;
+
+    for (i = 0; i < nombre_passagers - 1; i++)
+    {
+        min = i;
+
+        for (j = i + 1; j < nombre_passagers; j++)
+        {
+            if (tableau_vols[numero_vol - 1].passagers[j].date_naissance < tableau_vols[numero_vol - 1].passagers[min].date_naissance)
+            {
+                min = j;
+            }
+        }
+
+        // Échange des passagers (et non des prix directement)
+        tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
+        tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
+        tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
+    }
+
+    // Affichage des passagers triés
+    printf("\nPassagers du vol %d (triés par prix) :\n", numero_vol);
+    printf("===========================================================\n");
+    printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
+    printf("===========================================================\n");
+
+    for (i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
+    {
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+               tableau_vols[numero_vol - 1].passagers[i].nom,
+               tableau_vols[numero_vol - 1].passagers[i].prenom,
+               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].numero_siege,
+               tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+    }
+}
+*/
+ void trienom(struct Vol tableau_vols[], int numero_vol)
+{
+    int i, j, min;
+    struct Passager tmp_passager;
+
+    int nombre_passagers = tableau_vols[numero_vol - 1].nombre_passagers;
+
+    for (i = 0; i < nombre_passagers - 1; i++)
+    {
+        min = i;
+
+        for (j = i + 1; j < nombre_passagers; j++)
+        {
+            if (tableau_vols[numero_vol - 1].passagers[j].nom > tableau_vols[numero_vol - 1].passagers[min].nom)
+            {
+                min = j;
+            }
+        }
+
+        // Échange des passagers (et non des prix directement)
+        tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
+        tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
+        tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
+    }
+
+    // Affichage des passagers triés
+    printf("\nPassagers du vol %d (triés par nom) :\n", numero_vol);
+    printf("===========================================================\n");
+    printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
+    printf("===========================================================\n");
+
+    for (i = 0; i < nombre_passagers; i++)
+    {
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+               tableau_vols[numero_vol - 1].passagers[i].nom,
+               tableau_vols[numero_vol - 1].passagers[i].prenom,
+               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].numero_siege,
+               tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+    }
+}
