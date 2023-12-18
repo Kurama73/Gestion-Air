@@ -230,10 +230,10 @@ void menu(struct Vol tableau_vols[], int nombre_vols) //TOM
 // Fonction pour afficher le tableau d'information
 void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
 {
-    // Définir l'heure actuelle (par exemple, 07:00)
-    int heureActuelle = 700; // 07:00
+    // Définir l'heure actuelle
+    int heureActuelle = 1900; // 07:00
 
-    printf("Tableau des vols dans les 3 heures suivantes à partir de %02d:%02d:\n", heureActuelle / 100, heureActuelle % 100);
+    printf("Tableau des vols dans les 3 heures suivantes à partir de %02d:%02d :\n", heureActuelle / 100, heureActuelle % 100);
     printf("===============================================================================================================================================================\n");
     printf("| Heure Decollage  | No Vol | Compagnie              | Destination            | Comptoir | Enregistrement | Salle Emb. | Embarquement         | Etat vol\n");
     printf("===============================================================================================================================================================\n");
@@ -250,8 +250,8 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
                    tableau_vols[i].compagnie,
                    tableau_vols[i].destination);
 
-            // Afficher le comptoir et les heures d'enregistrement si dans la plage spécifiée
-            if (heureActuelle - 30 <= tableau_vols[i].heure_fin_enregistrement && heureActuelle + 10 >= tableau_vols[i].heure_debut_enregistrement)
+            // Afficher le comptoir et les heures d'enregistrement si dans la plage spécifiée (A partir de 30 minutes avant le debut et jusqu'a 1à min apres la fin)
+            if (tableau_vols[i].heure_debut_enregistrement - 30 < heureActuelle && heureActuelle < tableau_vols[i].heure_fin_enregistrement)
             {
                 printf(" %-8d | %02d:%02d - %02d:%02d  |",
                        tableau_vols[i].numero_comptoir,
@@ -266,8 +266,8 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
                 printf(" %-8s | %-14s |", "", "");
             }
 
-            // Afficher la salle d'embarquement et les heures d'embarquement si dans la plage spécifiée
-            if (heureActuelle - 30 <= tableau_vols[i].heure_fin_embarquement && heureActuelle + 10 >= tableau_vols[i].heure_debut_embarquement)
+            // Afficher la salle d'embarquement et les heures d'embarquement si dans la plage spécifiée (A partir de 30 minutes avant le debut et jusqu'a 1à min apres la fin)
+            if (tableau_vols[i].heure_debut_embarquement - 30 <= heureActuelle && heureActuelle <= tableau_vols[i].heure_fin_embarquement)
             {
                 printf(" %-10d | %02d:%02d - %02d:%02d        |",
                        tableau_vols[i].salle_embarquement,

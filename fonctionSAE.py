@@ -39,51 +39,54 @@ tab_5000 = [tab1_5000, tab2_5000, tab3_5000, tab4_5000, tab5_5000, tab6_5000, ta
 
 i = 0
 while i < 10:
-    tab_10[i].append(random.randint(0, 100))
-    i += 1
+    j = 0
+    while j < 10:
+        tab_10[j].append(random.randint(0, 100))
+        j = j + 1
+    i = i + 1
 
 i = 0
 while i < 500:
     j = 0
     while j < 10:
         tab_500[j].append(random.randint(0, 100))
-        j += 1
-    i += 1
+        j = j + 1
+    i = i + 1
 
 i = 0
 while i < 5000:
     j = 0
     while j < 10:
         tab_5000[j].append(random.randint(0, 100))
-        j += 1
-    i += 1
+        j = j + 1
+    i = i + 1
 
 
 def tri_selection(tab):
     compteur = 0
     i = 0
     j = 0
-    compteur += 2
+    compteur = compteur + 2
     while i < len(tab) - 1:
         min = i
         j = i + 1
-        compteur += 5
+        compteur = compteur + 5
         while j < len(tab):
-            compteur += 1
+            compteur = compteur + 1
             if tab[j] < tab[min]:
                 min = j
-                compteur += 2
-            j += 1
-            compteur += 2
+                compteur = compteur + 2
+            j = j + 1
+            compteur = compteur + 2
 
-        compteur += 1
+        compteur = compteur + 1
         tmp = tab[i]
         tab[i] = tab[min]
         tab[min] = tmp
-        i += 1
-        compteur += 5
+        i = i + 1
+        compteur = compteur + 5
 
-    compteur += 1
+    compteur = compteur + 1
     print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
@@ -95,58 +98,49 @@ def recherche_dicho(tab: [int], e: int):
     fin = len(tab) - 1
     ind = -1
 
-    compteur += 4
+    compteur = compteur + 4
 
     while deb <= fin:
         millieu = (fin + deb) // 2
 
-        compteur += 4
+        compteur = compteur + 4
 
         if tab[millieu] < e:
             deb = millieu + 1
-            compteur += 3
+            compteur = compteur + 3
         elif tab[millieu] > e:
             fin = millieu - 1
-            compteur += 4
+            compteur = compteur + 4
         else:
             ind = millieu
-            compteur += 3
+            compteur = compteur + 3
             print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
             return
-    compteur += 1
+    compteur = compteur + 1
     print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
     return ind
 
 
-# Tri par recherche pour trouver le nom ou la compagnie
-# tab 10 :
-# tab 500 :
-# tab 5000 :
-def recherche_cour(tab: [int], e: int):
-    n = len(tab)
-    ind = 0
-    i = 0
-    while i < n and tab[ind] != e:
-        ind = ind + 1
-        i += 1
-    return ind
-
-print(f"tab_10 : ")
+print("tab_10 : ")
 calcul = 0
-for i in tab_10:
-    calcul = calcul + tri_selection(i)
-print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
+i = 0
+while i < 10:
+    calcul = calcul + tri_selection(tab_10[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
 
-
-print(f"tab_500 : ")
+print("tab_500 : ")
 calcul = 0
-for i in tab_500:
-    calcul = calcul + tri_selection(i)
-print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
+i = 0
+while i < 10:
+    calcul = calcul + tri_selection(tab_500[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
 
-
-print(f"tab_5000 : ")
+print("tab_5000 : ")
 calcul = 0
-for i in tab_5000:
-    calcul = calcul + tri_selection(i)
-print(f"La moyenne d'operations elementaires est de : {calcul / 10}")
+i = 0
+while i < 10:
+    calcul = calcul + tri_selection(tab_5000[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
