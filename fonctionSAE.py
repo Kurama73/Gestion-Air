@@ -90,37 +90,113 @@ def tri_selection(tab):
     print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
-
-def recherche_dicho(tab: [int], e: int):
+def interclassement(left, right, tab):
     compteur = 0
+    i = j = k = 0
+    compteur = compteur + 1
+    while i < len(left) and j < len(right):
+        compteur = compteur + 1
+        if left[i] < right[j]:
+            compteur = compteur + 1
+            tab[k] = left[i]
+            compteur = compteur + 1
+            i += 1
+            compteur = compteur + 1
+        else:
+            compteur = compteur + 1
+            tab[k] = right[j]
+            compteur = compteur + 1
+            j += 1
+            compteur = compteur + 1
+        k += 1
+        compteur = compteur + 1
 
-    deb = 0
-    fin = len(tab) - 1
+    while i < len(left):
+        compteur = compteur + 1
+        tab[k] = left[i]
+        compteur = compteur + 1
+        i += 1
+        compteur = compteur + 1
+        k += 1
+        compteur = compteur + 1
+
+    while j < len(right):
+        compteur = compteur + 1
+        tab[k] = right[j]
+        compteur = compteur + 1
+        j += 1
+        compteur = compteur + 1
+        k += 1
+        compteur = compteur + 1
+        
+    return compteur
+
+def tri_fusion(tab):
+    
+    compteur = 0
+    n = len(tab)
+    compteur = compteur + 1
+    if n > 1:
+        mid = n // 2
+        compteur = compteur + 1
+        left = tab[:mid]
+        compteur = compteur + 1
+        right = tab[mid:]
+        compteur = compteur + 1
+
+        tri_fusion(left)
+        compteur = compteur + 1
+        tri_fusion(right)
+        compteur = compteur + 1
+
+        tab3 = [0] * n
+        compteur = compteur + 1
+        interclassement(left, right, tab3)
+        compteur1 = interclassement(left, right, tab)
+        compteur = compteur + 1
+        copie(tab3, tab)
+        compteur = compteur + 1
+        compteur = compteur + compteur1 
+        
+    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")    
+    return(compteur)
+
+
+def recherche_dicho(tab:[int],e:int):
+    compteur=0
+    deb=0
+    fin=len(tab)-1
     ind = -1
 
-    compteur = compteur + 4
+    compteur = 5 + compteur
 
-    while deb <= fin:
-        millieu = (fin + deb) // 2
+    while deb < fin:
+        millieu = (fin + deb) //2
 
-        compteur = compteur + 4
+        compteur = 4 + compteur
 
         if tab[millieu] < e:
+
             deb = millieu + 1
-            compteur = compteur + 3
+            compteur = 3 + compteur
+
         elif tab[millieu] > e:
+
             fin = millieu - 1
-            compteur = compteur + 4
+            compteur = 4 + compteur
+
         else:
+
             ind = millieu
-            compteur = compteur + 3
-            print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
-            return
-    compteur = compteur + 1
-    print(f"Nombre d'operations elementaires de la recherche dicho : {compteur}")
-    return ind
+            compteur = 3 + compteur
+           
+
+    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
+    return compteur
 
 
+
+"""
 print("tab_10 : ")
 calcul = 0
 i = 0
@@ -142,5 +218,60 @@ calcul = 0
 i = 0
 while i < 10:
     calcul = calcul + tri_selection(tab_5000[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+"""
+
+
+
+
+"""
+print("tab_10 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_10[i], 0)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_500 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_500[i], 0)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_5000 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_5000[i], 0)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+"""
+
+
+print("tab_10 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + tri_fusion(tab_10[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_500 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + tri_fusion(tab_500[i])
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_5000 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + tri_fusion(tab_5000[i])
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
