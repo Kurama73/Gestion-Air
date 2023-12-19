@@ -19,7 +19,7 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
     {
         printf("Veuillez saisir l'heure actuelle (sous la forme hhmm) : ");
         scanf("%d", &heureActuelle);
-    }while(heureActuelle < 0 && heureActuelle >= 2500);
+    }while(heureActuelle < 0600 && heureActuelle >= 2200);
 
     // Tri du tableau en fonction des heures de décollage
     tri_selection(tableau_vols, nombre_vols);

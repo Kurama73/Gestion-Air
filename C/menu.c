@@ -102,16 +102,16 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             break;
 
         case 4:
-            trieprix(tableau_vols, nombre_vols);
+            panneau_passagerp(tableau_vols, nombre_vols);
             break;
 
         case 5:
-            trieage(tableau_vols, nombre_vols);
+            panneau_passagera(tableau_vols, nombre_vols);
             break;
 
         case 6:
             // trie alphabetiquement par nom
-            trienom(tableau_vols, nombre_vols);
+            panneau_passagern(tableau_vols, nombre_vols);
             break;
 
 

@@ -13,13 +13,16 @@
 // Déclaration des constantes et structures
 #define MAX_FLIGHTS 100
 #define MAX_PASSENGERS_PER_FLIGHT 100
+#define VINGT 20
+#define ONZE 11
+#define CINQUANTE 50
 
 // Structure représentant un passager
 struct Passager
 {
-    char nom[50];
-    char prenom[50];
-    char date_naissance[11];
+    char nom[CINQUANTE];
+    char prenom[CINQUANTE];
+    char date_naissance[ONZE];
     int numero_siege;
     float prix_billet;
 };
@@ -28,8 +31,8 @@ struct Passager
 struct Vol
 {
     int numero_vol;
-    char compagnie[50];
-    char destination[50];
+    char compagnie[CINQUANTE];
+    char destination[CINQUANTE];
     int numero_comptoir;
     int heure_debut_enregistrement;
     int heure_fin_enregistrement;
@@ -37,7 +40,7 @@ struct Vol
     int heure_debut_embarquement;
     int heure_fin_embarquement;
     int heure_decollage;
-    char etat_vol[20];
+    char etat_vol[VINGT];
     int nombre_passagers;
     struct Passager passagers[MAX_PASSENGERS_PER_FLIGHT];
 };
