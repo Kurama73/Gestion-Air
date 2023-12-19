@@ -63,40 +63,21 @@ while i < 5000:
 
 
 def tri_selection(tab):
-    compteur = 0
     i = 0
     j = 0
-    compteur = compteur + 2
     while i < len(tab) - 1:
         min = i
         j = i + 1
-        compteur = compteur + 5
         while j < len(tab):
-            compteur = compteur + 1
             if tab[j] < tab[min]:
                 min = j
-                compteur = compteur + 2
             j = j + 1
-            compteur = compteur + 2
-
-        compteur = compteur + 1
         tmp = tab[i]
         tab[i] = tab[min]
         tab[min] = tmp
         i = i + 1
-        compteur = compteur + 5
 
-    compteur = compteur + 1
-    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
-    return compteur
 
-def copie(tab1, tab2):
-    n = len(tab1)
-    i = 0
-    while i < n:
-        tab2[i] = tab1[i]
-        i += 1
-        
 def interclassement(left, right, tab):
     compteur = 0
     i = j = k = 0
@@ -165,33 +146,9 @@ def tri_fusion(tab):
         compteur = compteur + 1
         compteur = compteur + compteur1 
         
-    #print(f"Nombre d'operations elementaires du tri par selection : {compteur}")    
+    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")    
     return(compteur)
 
-def trie_bulle(tab):
-    compteur = 0
-    n = len(tab)
-    compteur = compteur + 1
-    while n > 0:
-        compteur = compteur + 1
-        i = 0
-        compteur = compteur + 1
-        while i < n - 1:
-            compteur = compteur + 1
-            if tab[i] > tab[i + 1]:
-                compteur = compteur + 1
-                tmp = tab[i]
-                compteur = compteur + 1
-                tab[i] = tab[i + 1]
-                compteur = compteur + 1
-                tab[i + 1] = tmp
-                compteur = compteur + 1
-            i += 1
-            compteur = compteur + 1
-        n -= 1
-        compteur = compteur + 1
-
-    return compteur
 
 def recherche_dicho(tab:[int],e:int):
     compteur=0
@@ -222,40 +179,10 @@ def recherche_dicho(tab:[int],e:int):
             compteur = 3 + compteur
            
 
- #   print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
+    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
-def recherche(tab, ind):
-    compteur=0
-    a = ind
-    compteur = compteur + 1
-    i = 0
-    compteur = compteur + 1
-    n = len(tab)
-    compteur = compteur + 1
-    ind = -1  
-    compteur = compteur + 1
 
-    while i < n:
-        compteur = compteur + 1
-        if tab[i] == a:
-            compteur = compteur + 1
-            ind = i
-            compteur = compteur + 1
-            break 
-        else:
-            compteur = compteur + 1
-            i += 1
-            compteur = compteur + 1
-
-    if ind != -1:
-        compteur = compteur + 1
-        print(a, "se trouve en premier à l'indice : ", ind)
-        compteur = compteur + 1
-    else:
-        print(a, "n'est pas présent dans le tableau.")
-        compteur = compteur + 1
-    return compteur
 
 """
 print("tab_10 : ")
@@ -282,8 +209,6 @@ while i < 10:
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
 """
-
-
 
 
 
@@ -315,11 +240,6 @@ print(f"Moyenne = {calcul / 10}")
 """
 
 
-
-
-
-
-"""
 print("tab_10 : ")
 calcul = 0
 i = 0
@@ -343,63 +263,3 @@ while i < 10:
     calcul = calcul + tri_fusion(tab_5000[i])
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
-"""
-
-
-
-
-
-
-
-"""
-print("tab_10 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + trie_bulle(tab_10[i])
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_500 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + trie_bulle(tab_500[i])
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_5000 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + trie_bulle(tab_5000[i])
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-"""
-
-
-"""
-print("tab_10 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche(tab_10[i], 35)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_500 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche(tab_500[i],35)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_5000 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche(tab_5000[i],35)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-"""

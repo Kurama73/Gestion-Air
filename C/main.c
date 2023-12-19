@@ -1,3 +1,12 @@
+/**
+ * \file     main.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 // Fonction principale

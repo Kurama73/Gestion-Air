@@ -1,3 +1,12 @@
+/**
+ * \file     afficher_passagers.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 // Afficher les passagers d'un vol

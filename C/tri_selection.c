@@ -1,3 +1,12 @@
+/**
+ * \file     tri_selection.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 void tri_selection(struct Vol tableau_vols[], int nombre_vols)

@@ -1,3 +1,12 @@
+/**
+ * \file     menu.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 // Afficher le menu principal
@@ -74,8 +83,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                     // Afficher les compagnies
                     afficherCompagnie(tableau_vols, nombre_vols);
                     break;
-
-
 
                 default:
                     printf("Choix non valide. Veuillez réessayer.\n");

@@ -1,3 +1,12 @@
+/**
+ * \file     enzo.c
+ * \brief
+ * \author   Enzo Saccone
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 void trieprix(struct Vol tableau_vols[], int numero_vol)
@@ -26,7 +35,7 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
     }
 
     // Affichage des passagers triés
-    printf("\nPassagers du vol %d (triés par prix) :\n", numero_vol);
+    printf("\nPassagers du vol %d (tries par prix) :\n", numero_vol);
     printf("===========================================================\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
     printf("===========================================================\n");
@@ -66,7 +75,7 @@ void trieage(struct Vol tableau_vols[], int numero_vol)
         tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
     }
 
-    printf("\nPassagers du vol %d (triés par age) :\n", numero_vol);
+    printf("\nPassagers du vol %d (tries par age) :\n", numero_vol);
     printf("===========================================================\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
     printf("===========================================================\n");
@@ -108,7 +117,7 @@ void trienom(struct Vol tableau_vols[], int numero_vol)
     }
 
     // Affichage des passagers triés par nom
-    printf("\nPassagers du vol %d (triés par nom) :\n", numero_vol);
+    printf("\nPassagers du vol %d (tries par nom) :\n", numero_vol);
     printf("===========================================================\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
     printf("===========================================================\n");

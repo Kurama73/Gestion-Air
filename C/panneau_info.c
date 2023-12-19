@@ -1,3 +1,12 @@
+/**
+ * \file     panneau_info.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
+
 #include "main.h"
 
 // Fonction pour afficher le tableau d'information
