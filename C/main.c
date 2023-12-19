@@ -43,8 +43,8 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols);
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
 void trieprix (struct Vol tableau_vols[],int numero_vol);
-
- void trienom(struct Vol tableau_vols[], int numero_vol);
+void trieage(struct Vol tableau_vols[], int numero_vol);
+void trienom(struct Vol tableau_vols[], int numero_vol);
 
 // Fonction principale
 int main()
@@ -148,9 +148,9 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
         printf("1- Afficher le tableau des vols\n");
         printf("2- Rechercher un vol\n");
         printf("3- Afficher les passagers d'un vol\n");
-        printf("4- Trier les billets par prix\n ");
-
-        printf("6- trier alphabetiquement les noms");
+        printf("4- Trier les billets par prix\n");
+        printf("5- Trier par age\n");
+        printf("6- trier alphabetiquement les noms\n");
         printf("Choix : ");
         scanf("%d", &choix);
 
@@ -181,8 +181,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 printf("2- Afficher les destinations d'un vol\n");
                 printf("3- Afficher les compagnies\n");
                 printf("4- Trier les billets par prix\n ");
-
-                printf("6- trier alphabetiquement les noms");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);
 
@@ -211,12 +209,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                     afficherCompagnie(tableau_vols, nombre_vols);
                     break;
 
-                case 4:
-                    // Trier les billets
-                    trieprix(tableau_vols, nombre_vols);
-                    break;
-
-
 
 
                 default:
@@ -240,9 +232,13 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             trieprix(tableau_vols, nombre_vols);
             break;
 
+        case 5:
+            trieage(tableau_vols, nombre_vols);
+            break;
+
         case 6:
             // trie alphabetiquement par nom
-            trienom(tableau_vols, numero_vol);
+            trienom(tableau_vols, nombre_vols);
             break;
 
 
@@ -478,7 +474,7 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
     }
 }
 
-/*void trieage(struct Vol tableau_vols[], int numero_vol)
+void trieage(struct Vol tableau_vols[], int numero_vol)
 {
     int i, j, min;
     struct Passager tmp_passager;
@@ -497,14 +493,12 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
             }
         }
 
-        // Échange des passagers (et non des prix directement)
         tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
         tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
         tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
     }
 
-    // Affichage des passagers triés
-    printf("\nPassagers du vol %d (triés par prix) :\n", numero_vol);
+    printf("\nPassagers du vol %d (triés par age) :\n", numero_vol);
     printf("===========================================================\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
     printf("===========================================================\n");
@@ -519,8 +513,8 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
                tableau_vols[numero_vol - 1].passagers[i].prix_billet);
     }
 }
-*/
- void trienom(struct Vol tableau_vols[], int numero_vol)
+
+void trienom(struct Vol tableau_vols[], int numero_vol)
 {
     int i, j, min;
     struct Passager tmp_passager;
@@ -533,19 +527,19 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
 
         for (j = i + 1; j < nombre_passagers; j++)
         {
-            if (tableau_vols[numero_vol - 1].passagers[j].nom > tableau_vols[numero_vol - 1].passagers[min].nom)
+            // Utilisation de strcmp pour comparer les noms
+            if (strcmp(tableau_vols[numero_vol - 1].passagers[j].nom, tableau_vols[numero_vol - 1].passagers[min].nom) > 0)
             {
                 min = j;
             }
         }
 
-        // Échange des passagers (et non des prix directement)
         tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
         tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
         tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
     }
 
-    // Affichage des passagers triés
+    // Affichage des passagers triés par nom
     printf("\nPassagers du vol %d (triés par nom) :\n", numero_vol);
     printf("===========================================================\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
@@ -561,3 +555,5 @@ void trieprix(struct Vol tableau_vols[], int numero_vol)
                tableau_vols[numero_vol - 1].passagers[i].prix_billet);
     }
 }
+
+
