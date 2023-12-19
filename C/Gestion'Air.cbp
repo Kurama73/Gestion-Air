@@ -31,7 +31,29 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="afficher_passagers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="enzo.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.h" />
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="panneau_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="structure.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="timothee.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tri_selection.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />

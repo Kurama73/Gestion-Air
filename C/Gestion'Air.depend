@@ -1,8 +1,6 @@
 # depslib dependency file v1.0
-1702803778 source:c:\cours\gestionair\c\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1702970116 source:c:\cours\gestionair\c\main.c
+	"main.h"
 
 1702653422 source:c:\cours\gestionair\c\test.c
 	<stdio.h>
@@ -13,4 +11,30 @@
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+
+1702969714 source:c:\cours\gestionair\c\structure.c
+	"main.h"
+
+1702969419 c:\cours\gestionair\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1702970029 source:c:\cours\gestionair\c\afficher_passagers.c
+	"main.h"
+
+1702970110 source:c:\cours\gestionair\c\enzo.c
+	"main.h"
+
+1702969767 source:c:\cours\gestionair\c\menu.c
+	"main.h"
+
+1702969821 source:c:\cours\gestionair\c\panneau_info.c
+	"main.h"
+
+1702970121 source:c:\cours\gestionair\c\timothee.c
+	"main.h"
+
+1702969849 source:c:\cours\gestionair\c\tri_selection.c
+	"main.h"
 
