@@ -1,3 +1,11 @@
+/**
+ * \file     main.c
+ * \brief
+ * \author   Tom FRUMY
+ * \version  0.1
+ * \date     19/12/23
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
