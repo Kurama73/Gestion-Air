@@ -62,3 +62,29 @@
 1702975228 source:e:\gestionair\c\enzo.c
 	"main.h"
 
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\afficher_passagers.c
+	"main.h"
+
+1703239991 c:\users\traza\documents\cours\c\gestionair\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\enzo.c
+	"main.h"
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\main.c
+	"main.h"
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\menu.c
+	"main.h"
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\panneau_info.c
+	"main.h"
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\structure.c
+	"main.h"
+
+1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\tri_selection.c
+	"main.h"
+

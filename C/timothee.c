@@ -41,14 +41,15 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la destination : ");
-    char destination;
+    char destination[50];
     scanf("%s", &destination);
 
     int destinationTrouvee = 0;
+    size_t longueurDestination = strlen(destination);
 
     for (int i = 0; i < nombre_vols; i++)
     {
-        if (tableau_vols[i].destination[0] == destination)
+        if (strncasecmp(tableau_vols[i].destination, destination, longueurDestination) == 0)
         {
             printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
                 tableau_vols[i].numero_vol,
@@ -80,10 +81,11 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
     scanf("%s", compagnie);
 
     int compagnieTrouvee = 0;
+    size_t longueurCompagnie = strlen(compagnie);
 
     for (int i = 0; i < nombre_vols; i++)
     {
-        if (strcmp(tableau_vols[i].compagnie, compagnie) == 0)
+        if (strncasecmp(tableau_vols[i].compagnie, compagnie, longueurCompagnie) == 0)
         {
             printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
                 tableau_vols[i].numero_vol,
