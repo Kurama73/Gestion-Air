@@ -38,6 +38,8 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
     }
 }
 
+
+
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la destination : ");
@@ -77,7 +79,7 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la compagnie : ");
-    char compagnie[CINQUANTE];
+    char compagnie[50];
     scanf("%s", compagnie);
 
     int compagnieTrouvee = 0;
