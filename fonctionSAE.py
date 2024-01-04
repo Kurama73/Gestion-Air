@@ -263,3 +263,48 @@ while i < 10:
     calcul = calcul + tri_fusion(tab_5000[i])
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
+
+
+
+
+
+def interclassement(tab1:[int],tab2:[int],tab3:[int]) :
+    j=0
+    i=0
+    K=0
+    n1=len(tab1)
+    n2=len(tab2)
+
+    while i < n1 and j < n2 :
+        if tab1[i]<=tab2[j] :
+            tab3[k]=tab1[i]
+            i=i+1
+        else
+            tab3[k]=tab2[j]
+            j=j+1
+        k=k+1
+        while i < n1 :
+             tab3[k]=tab1[i]
+             i=i+1
+             k=k+1
+        while j < n2 :
+            tab3[k]=tab2[j]
+            j=j+1
+            k=k+1
+
+def copie(tab1:[int],tab2:[int]) :
+    n=len(tab1)
+    i=0
+    while i<n :
+        tab2[i]=tab1[i]
+        i=i+1
+
+def tri_fusion (tab)
+    n=len(tab)
+    if n<1:
+        mil=n//2
+        tri_fusion(tab[:mil])
+        tri_fusion(tab[mil:])
+        tab3=empty(int,n)
+        interclassement(tab[:mil],tab[mil:],tab3)
+        copie(tab3,tab)
