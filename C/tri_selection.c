@@ -8,7 +8,9 @@
 
 
 #include "main.h"
+
 #define MAX_PASSAGERS 1000
+
 
 void tri_selection(struct Vol tableau_vols[], int nombre_vols)
 {
@@ -36,61 +38,85 @@ void tri_selection(struct Vol tableau_vols[], int nombre_vols)
     }
 }
 
-void tri_fusion(struct Vol tableau_vols[], int numero_vol);
 
-void interclassement(struct Passager tab1[], int n1, struct Passager tab2[], int n2, struct Passager tab3[]) {
+
+void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct Vol tableau_volsB[] , const int nombre_volsB )
+{
     int i = 0, j = 0, k = 0;
+    const int sizetab = nombre_volsA + nombre_volsB;
 
-    while (i < n1 && j < n2) {
-        if (tab1[i].prix_billet <= tab2[j].prix_billet) {
-            tab3[k] = tab1[i];
+
+    struct Vol *tab3 = (struct Vol *)malloc(sizetab * sizeof(struct Vol));
+
+    while (i < nombre_volsA && j < nombre_volsB)
+    {
+        if (tableau_volsA[i].passagers[0].prix_billet <= tableau_volsB[j].passagers[0].prix_billet)
+        {
+            tab3[k] = tableau_volsA[i];
             i++;
-        } else {
-            tab3[k] = tab2[j];
+        }
+        else
+        {
+            tab3[k] = tableau_volsB[j];
             j++;
         }
         k++;
     }
 
-    while (i < n1) {
-        tab3[k] = tab1[i];
-        i++;
+    while (i < nombre_volsA)
+    {
+        tab3[k] = tableau_volsA[i];
+         i++;
         k++;
     }
 
-    while (j < n2) {
-        tab3[k] = tab2[j];
+    while (j < nombre_volsB)
+    {
+        tab3[k] = tableau_volsB[j];
         j++;
         k++;
     }
-}
 
-void copie(struct Passager tab1[], int n1, struct Passager tab2[]) {
-    for (int i = 0; i < n1; i++) {
+
+    for (int i = 0; i < sizetab; i++)
+    {
+        tableau_volsB[i] = tableau_volsA[i];
+
+    free(tab3);
+    }
+}
+/*void copie(int tab1[], int n, int tab2[]) {
+    for (int i = 0; i < n; i++) {
         tab2[i] = tab1[i];
     }
 }
+*/
 
-void tri_fusion(struct Vol tableau_vols[], int numero_vol) {
-    int n = tableau_vols[numero_vol - 1].nombre_passagers;
-    struct Passager *tab = tableau_vols[numero_vol - 1].passagers;
-    if (n > 1)
+
+void tri_prix(struct Vol tableau_vols[], const int nombre_vols)
+{
+    if (nombre_vols > 1)
     {
-        int mid = n / 2;
 
-        tri_fusion(tableau_vols, numero_vol, tab, mid);
-        tri_fusion(tableau_vols, numero_vol, tab + mid, n - mid);
+
+        const int nombre_volsA = nombre_vols / 2;
+        const int nombre_volsB = nombre_vols - nombre_volsA;
+
+
+        tri_prix(tableau_vols, nombre_volsA);
+        tri_prix(tableau_vols + nombre_volsA, nombre_volsB);
+
         // Utilisation d'un tableau temporaire pour l'interclassement
-        struct Passager tab3[MAX_PASSAGERS];
-        interclassement(tableau_vols[numero_vol - 1].passagers, mid, tableau_vols[numero_vol - 1].passagers + mid, n - mid, tab3);
+        interclassement( tableau_vols, nombre_volsA, tableau_vols + nombre_volsA, nombre_volsB);
 
         // Copie du tableau temporaire dans le tableau original
-        copie(tab3, n, tableau_vols[numero_vol - 1].passagers);
+
     }
 }
 
 
-/*void trieprix(struct Vol tableau_vols[], int numero_vol)
+/*
+void tri_prix(struct Vol tableau_vols[], int numero_vol)
 {
     int i, j, min;
     struct Passager tmp_passager;
@@ -115,7 +141,6 @@ void tri_fusion(struct Vol tableau_vols[], int numero_vol) {
         tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
     }
 }
-
 */
 
 

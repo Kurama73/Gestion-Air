@@ -17,6 +17,7 @@
 #define ONZE 11
 #define CINQUANTE 50
 
+
 // Structure représentant un passager
 struct Passager
 {
@@ -53,6 +54,6 @@ void afficherPassagers(struct Vol tableau_vols[], int numero_vol);
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols);
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
-void trieprix (struct Vol tableau_vols[],int numero_vol);
+void tri_prix (struct Vol tableau_vols[],const int nombre_vols);
 void trieage(struct Vol tableau_vols[], int numero_vol);
 void trienom(struct Vol tableau_vols[], int numero_vol);
