@@ -80,10 +80,10 @@ void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct 
 
     for (int i = 0; i < sizetab; i++)
     {
-        tableau_volsB[i] = tableau_volsA[i];
+        tableau_volsA[i] = tab3[i];
+    }
 
     free(tab3);
-    }
 }
 /*void copie(int tab1[], int n, int tab2[]) {
     for (int i = 0; i < n; i++) {
@@ -107,7 +107,7 @@ void tri_prix(struct Vol tableau_vols[], const int nombre_vols)
         tri_prix(tableau_vols + nombre_volsA, nombre_volsB);
 
         // Utilisation d'un tableau temporaire pour l'interclassement
-        interclassement( tableau_vols, nombre_volsA, tableau_vols + nombre_volsA, nombre_volsB);
+        interclassement(tableau_vols, nombre_volsA, tableau_vols + nombre_volsA, nombre_volsB);
 
         // Copie du tableau temporaire dans le tableau original
 
