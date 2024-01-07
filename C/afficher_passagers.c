@@ -23,7 +23,7 @@ void afficherPassagers(struct Vol tableau_vols[], int numero_vol) // A modifier 
     }
 }
 
-void afficherPassagers_entete(struct Vol tableau_vols[], int numero_vol)
+void afficherPassagers_entete(int numero_vol)
 {
     printf("\nPassagers du vol %d :\n", numero_vol);
     printf("===========================================================\n");

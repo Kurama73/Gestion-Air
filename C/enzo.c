@@ -9,15 +9,18 @@
 
 #include "main.h"
 
-void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
+void panneau_passagerp(struct Vol tableau_vols[], int numero_vol)
 {
-    for (int i = 0; i < nombre_vols; i++)
+    for (int i = 0; i < numero_vol; i++)
     {
-        afficherPassagers_entete(tableau_vols, i + 1);
+        afficherPassagers_entete(tableau_vols[i].numero_vol);
         tri_prix(tableau_vols[i].passagers, tableau_vols[i].nombre_passagers);
         afficherPassagers(tableau_vols, i + 1);
     }
 }
+
+
+
 /*int age(tableau_vols,date_naissance)
 {
     //calucule age
@@ -47,18 +50,5 @@ void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
 
 
 
-void panneau_passagera(struct Vol tableau_vols[], int numero_vol)
-{
-    trieage(tableau_vols, numero_vol);
-    afficherPassagers_entete(tableau_vols, numero_vol);
-    afficherPassagers(tableau_vols, numero_vol);
-}
-
-void panneau_passagern(struct Vol tableau_vols[], int numero_vol)
-{
-    trienom(tableau_vols, numero_vol);
-    afficherPassagers_entete(tableau_vols, numero_vol);
-    afficherPassagers(tableau_vols, numero_vol);
-}
 
 

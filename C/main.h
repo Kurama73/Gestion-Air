@@ -55,5 +55,5 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols);
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
 void tri_prix (struct Passager tableau_passagers[], const int nombre_passagers);
-void trieage(struct Vol tableau_vols[], int numero_vol);
-void trienom(struct Vol tableau_vols[], int numero_vol);
+
+
