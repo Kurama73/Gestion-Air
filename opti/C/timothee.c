@@ -225,12 +225,12 @@ void testtab(int tableau_retard[], int taille_retard, struct Vol tableau_vols[],
     {
         printf("%d\n",i);
 
-        diff = (tableau_vols[i + 1].heure_decollage - tableau_vols[i].heure_decollage);
+        //diff = (tableau_vols[i + 1].heure_decollage - tableau_vols[i].heure_decollage);
         avant = tableau_vols[i].heure_decollage + 5;
         printf("%d\n", avant);
         val = tableau_retard[i];
 
-        if (diff >= 60)
+        /*if (diff >= 60)
         {
             diff = diff - 40;
             printf("flag3\n");
@@ -239,12 +239,12 @@ void testtab(int tableau_retard[], int taille_retard, struct Vol tableau_vols[],
 
         printf("%d\n", avant);
 
-        if (diff >= 10) // Point 3
+        if (diff >= 10)
         {
             printf("flag4\n");
             printf("L'avion prevu a %d decollera a %d\n",val, avant);
             printf("flag5\n");
-        }
+        }*/
     }
 }
 

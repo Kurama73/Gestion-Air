@@ -11,12 +11,21 @@
 
 void panneau_passagerp(struct Vol tableau_vols[], int numero_vol)
 {
+<<<<<<< HEAD
+    //afficherPassagers_entete(tableau_vols, numero_vol);
+    tri_prix(tableau_vols, numero_vol);
+
+    //afficherPassagers(tableau_vols, numero_vol);
+    //age(tableau_vols, tableau_vols[*nombre_vols].passagers[i].date_naissance);
+
+=======
     for (int i = 0; i < numero_vol; i++)
     {
         afficherPassagers_entete(tableau_vols[i].numero_vol);
         tri_prix(tableau_vols[i].passagers, tableau_vols[i].nombre_passagers);
         afficherPassagers(tableau_vols, i + 1);
     }
+>>>>>>> c5dad86f17ab04f44ee084a86adcfc416b3e5068
 }
 
 

@@ -12,9 +12,20 @@
 // Afficher les passagers d'un vol
 void afficherPassagers(struct Vol tableau_vols[], int numero_vol) // A modifier par enzo
 {
+
     for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
     {
+<<<<<<< HEAD
         printf("| %-18s | %-18s | %02d/%02d/%4d | %-5d | %-11.2f |\n",
+=======
+
+        char date_part[5];
+        strncpy(date_part, tableau_vols[numero_vol - 1].passagers[i].date_naissance + 6, 4);
+        date_part[4] = '\0';
+        printf("Date Part: %s\n", date_part);
+
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+>>>>>>> fb1f15953c3520ab057fbc56c15b4fa63f83cf4f
                tableau_vols[numero_vol - 1].passagers[i].nom,
                tableau_vols[numero_vol - 1].passagers[i].prenom,
                tableau_vols[numero_vol - 1].passagers[i].jour_naissance,

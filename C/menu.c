@@ -95,7 +95,9 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             printf("Entrez le numéro du vol : ");
             int numero_vol;
             scanf("%d", &numero_vol);
+            afficherPassagers_entete(tableau_vols, numero_vol);
             afficherPassagers(tableau_vols, numero_vol);
+
             break;
 
         case 4:
