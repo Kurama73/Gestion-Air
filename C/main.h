@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Déclaration des constantes et structures
+// Dclaration des constantes et structures
 #define MAX_FLIGHTS 100
 #define MAX_PASSENGERS_PER_FLIGHT 100
 #define VINGT 20
@@ -18,7 +18,7 @@
 #define CINQUANTE 50
 
 
-// Structure représentant un passager
+// Structure reprsentant un passager
 struct Passager
 {
     char nom[CINQUANTE];
@@ -30,7 +30,7 @@ struct Passager
     float prix_billet;
 };
 
-// Structure représentant un vol
+// Structure reprsentant un vol
 struct Vol
 {
     int numero_vol;
@@ -56,12 +56,8 @@ void afficherPassagers(struct Vol tableau_vols[], int numero_vol);
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols);
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
-<<<<<<< HEAD
 void tri_prix (struct Vol tableau_vols[],int numero_vol);
 void trieage(struct Vol tableau_vols[], int numero_vol);
 void trienom(struct Vol tableau_vols[], int numero_vol);
-=======
 void tri_prix (struct Passager tableau_passagers[], const int nombre_passagers);
 
-
->>>>>>> c5dad86f17ab04f44ee084a86adcfc416b3e5068
