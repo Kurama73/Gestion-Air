@@ -39,24 +39,27 @@ void tri_selection(struct Vol tableau_vols[], int nombre_vols)
 }
 
 
-
+/*
 void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct Vol tableau_volsB[] , const int nombre_volsB )
 {
     int i = 0, j = 0, k = 0;
     const int sizetab = nombre_volsA + nombre_volsB;
-
+    printf("flag1");
 
     struct Vol *tab3 = (struct Vol *)malloc(sizetab * sizeof(struct Vol));
-
+    printf("flag2");
     while (i < nombre_volsA && j < nombre_volsB)
     {
+        printf("flag3");
         if (tableau_volsA[i].passagers[0].prix_billet <= tableau_volsB[j].passagers[0].prix_billet)
         {
+            printf("flag4");
             tab3[k] = tableau_volsA[i];
             i++;
         }
         else
         {
+            printf("flag5");
             tab3[k] = tableau_volsB[j];
             j++;
         }
@@ -65,6 +68,7 @@ void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct 
 
     while (i < nombre_volsA)
     {
+        printf("flag6");
         tab3[k] = tableau_volsA[i];
          i++;
         k++;
@@ -72,6 +76,7 @@ void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct 
 
     while (j < nombre_volsB)
     {
+        printf("flag7");
         tab3[k] = tableau_volsB[j];
         j++;
         k++;
@@ -80,9 +85,17 @@ void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct 
 
     for (int i = 0; i < sizetab; i++)
     {
+        printf("flag8");
         tableau_volsB[i] = tableau_volsA[i];
 
     free(tab3);
+
+    }
+     int taille = sizeof(tab3) / sizeof(tab3[0]);
+
+    // Boucle pour afficher les éléments du tableau
+    for (int i = 0; i < taille; i++) {
+        printf("Element %d : %d\n", i, tab3[i]);
     }
 }
 /*void copie(int tab1[], int n, int tab2[]) {
@@ -90,9 +103,9 @@ void interclassement(struct Vol tableau_volsA[], const int nombre_volsA ,struct 
         tab2[i] = tab1[i];
     }
 }
-*/
 
 
+/*
 void tri_prix(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
@@ -112,36 +125,37 @@ void tri_prix(struct Vol tableau_vols[], const int nombre_vols)
         // Copie du tableau temporaire dans le tableau original
 
     }
-}
+}*/
 
 
-/*
-void tri_prix(struct Vol tableau_vols[], int numero_vol)
+
+
+void tri_prix(struct Vol tableau_vols[], int nombre_vol)
 {
-    int i, j, min;
-    struct Passager tmp_passager;
+    int numero_vol;
 
-    int nombre_passagers = tableau_vols[numero_vol - 1].nombre_passagers;
+    printf("Entrez le numero du vol que vous souhaitez trier : ");
+    scanf("%d", &numero_vol);
 
-    for (i = 0; i < nombre_passagers - 1; i++)
+    if (numero_vol < 1)
     {
-        min = i;
-
-        for (j = i + 1; j < nombre_passagers; j++)
-        {
-            if (tableau_vols[numero_vol - 1].passagers[j].prix_billet > tableau_vols[numero_vol - 1].passagers[min].prix_billet)
-            {
-                min = j;
-            }
-        }
-
-        // Échange des passagers (et non des prix directement)
-        tmp_passager = tableau_vols[numero_vol - 1].passagers[i];
-        tableau_vols[numero_vol - 1].passagers[i] = tableau_vols[numero_vol - 1].passagers[min];
-        tableau_vols[numero_vol - 1].passagers[min] = tmp_passager;
+        printf("Numero de vol invalide.\n");
+        return;
     }
+
+    for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
+    {
+        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+               tableau_vols[numero_vol - 1].passagers[i].nom,
+               tableau_vols[numero_vol - 1].passagers[i].prenom,
+               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].numero_siege,
+               tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+    }
+
 }
-*/
+
+
 
 
 void trieage(struct Vol tableau_vols[], int numero_vol)

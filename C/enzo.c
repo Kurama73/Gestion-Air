@@ -9,12 +9,14 @@
 
 #include "main.h"
 
-void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
+void panneau_passagerp(struct Vol tableau_vols[], int numero_vol)
 {
-    tri_prix(tableau_vols, nombre_vols);
+    //afficherPassagers_entete(tableau_vols, numero_vol);
+    tri_prix(tableau_vols, numero_vol);
+
+    //afficherPassagers(tableau_vols, numero_vol);
     //age(tableau_vols, tableau_vols[*nombre_vols].passagers[i].date_naissance);
-    afficherPassagers_entete(tableau_vols, nombre_vols);
-    afficherPassagers(tableau_vols, nombre_vols);
+
 }
 
 /*int age(tableau_vols,date_naissance)
