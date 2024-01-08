@@ -85,4 +85,6 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
 
     // Fermeture du fichier après lecture
     fclose(pt_fichier);
+
+
 }

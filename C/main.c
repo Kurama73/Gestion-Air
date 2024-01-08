@@ -20,6 +20,10 @@ int main()
     // Charger les données à partir du CSV
     structure(tableau_vols, &nombre_vols);
 
+
+
+
+
     // Afficher le menu
     menu(tableau_vols, nombre_vols, nombre_passagers);
 

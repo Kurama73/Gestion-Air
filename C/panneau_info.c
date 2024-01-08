@@ -25,8 +25,9 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
 
     if (heureActuelle >= 600 && heureActuelle <= 2200)
     {
-       // Tri du tableau en fonction des heures de décollage
+        // Tri du tableau en fonction des heures de décollage
         tri_heure(tableau_vols, nombre_vols);
+
 
         printf("\nTableau des vols dans les 3 heures suivantes a partir de %02d:%02d :\n", heureActuelle / 100, heureActuelle % 100);
         printf("===============================================================================================================================================================\n");

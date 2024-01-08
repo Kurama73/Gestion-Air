@@ -1,7 +1,7 @@
 /**
  * \file     afficher_passagers.c
  * \brief
- * \author   Tom FRUMY
+ * \author   Tom FRUMY et Enzo SACCONE
  * \version  0.1
  * \date     19/12/23
  */
