@@ -156,9 +156,10 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
     while (i < nombre_passagersA && j < nombre_passagersB)
     {
         // TODO enzo tri du plus tot au plus tard et du plus cher au moins cher
-       if ((tableau_passagersA[i].annee_naissance > tableau_passagersB[j].annee_naissance)
-            || (tableau_passagersA[i].annee_naissance == tableau_passagersB[j].annee_naissance && tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet))
+       /*if ((tableau_passagersA[i].annee_naissance > tableau_passagersB[j].annee_naissance)
+            || (tableau_passagersA[i].annee_naissance == tableau_passagersB[j].annee_naissance && tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet))*/
 
+        if (tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet)
 
         {
             tab_final[k] = tableau_passagersA[i];
@@ -199,51 +200,18 @@ void tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
 {
     if (nombre_passagers > 1)
     {
-
-
         const int nombre_passagersA = nombre_passagers / 2;
         const int nombre_passagersB = nombre_passagers - nombre_passagersA;
-
 
         tri_prix(tableau_passagers, nombre_passagersA);
         tri_prix(tableau_passagers + nombre_passagersA, nombre_passagersB);
 
-        // Utilisation d'un tableau temporaire pour l'interclassement
         interclassement_prix(tableau_passagers, nombre_passagersA, tableau_passagers + nombre_passagersA, nombre_passagersB);
-
     }
 }
 
 
 
-void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
-{
-    // Affichage de l'en-tête
-    afficherPassagers_entete(numero_vol);
 
-    for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
-    {
-        // Vérifier si le passager a moins de 12 ans
-        if (estMoins12ans(tableau_vols[numero_vol - 1].passagers[i]))
-        {
-            printf("| %-18s | %-18s | %02d/%02d/%4d | %-5d | %-11.2f |\n",
-                   tableau_vols[numero_vol - 1].passagers[i].nom,
-                   tableau_vols[numero_vol - 1].passagers[i].prenom,
-                   tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].mois_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].annee_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].numero_siege,
-                   tableau_vols[numero_vol - 1].passagers[i].prix_billet);
-        }
-    }
-}
 
-// Fonction pour vérifier si un passager a moins de 12 ans
-int estMoins12ans(struct Passager passager)
-{
-    // Supposons que nous sommes en 2024 (vous pouvez ajuster cela en fonction de l'année actuelle)
-    int age = 2024 - passager.annee_naissance;
 
-    // Vérifier si le passager a moins de 12 ans
-    return age < 12;
-}
