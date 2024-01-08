@@ -49,7 +49,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 // Affichage des options du sous-menu
                 printf("\nRechercher un vol:\n");
                 printf("0- Retour au menu principal\n");
-                printf("1- Rechercher par heures de décollage\n");
+                printf("1- Rechercher par heures de decollage\n");
                 printf("2- Rechercher par destination\n");
                 printf("3- Rechercher par compagnies\n");
                 printf("Choix : ");
@@ -94,11 +94,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             tri_vol(tableau_vols, nombre_vols);
             panneau_passagerp(tableau_vols, nombre_vols);
             break;
-
-            break;
-
-
-
 
         default:
             printf("Choix non valide. Veuillez réessayer.\n");
