@@ -106,14 +106,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             panneau_passagerp(tableau_vols, nombre_vols);
             break;
 
-        case 5:
-            panneau_passagera(tableau_vols, nombre_vols);
-            break;
-
-        case 6:
-            // trie alphabetiquement par nom
-            panneau_passagern(tableau_vols, nombre_vols);
-            break;
 
 
         default:
