@@ -88,9 +88,10 @@
 1703239991 source:c:\users\traza\documents\cours\c\gestionair\c\tri_selection.c
 	"main.h"
 
-<<<<<<< HEAD
+1703239991 D
+
 1703723963 source:c:\users\traza\documents\cours\c\gestionair\c\timothee.c
-=======
+
 1704038018 source:d:\gestionair\c\afficher_passagers.c
 	"main.h"
 
@@ -118,6 +119,33 @@
 	"main.h"
 
 1704389467 source:d:\gestionair\c\tri_selection.c
->>>>>>> b35514c8fd41c6099f7938857afdf52e9482bdf3
+
+1704389467 514c8fd41c6099f7938857afdf52e9482bdf3
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\afficher_passagers.c
+	"main.h"
+
+1704491619 c:\users\traza\documents\cours\c\gestionair\opti\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\enzo.c
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\main.c
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\menu.c
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\panneau_info.c
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\structure.c
+	"main.h"
+
+1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\tri_selection.c
 	"main.h"
 
