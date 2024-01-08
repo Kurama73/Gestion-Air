@@ -11,7 +11,7 @@
 
 void panneau_passagerp(struct Vol tableau_vols[], int numero_vol)
 {
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 
 =======
     tri_fusion(tableau_vols, numero_vol);
@@ -26,7 +26,7 @@ void panneau_passagerp(struct Vol tableau_vols[], int numero_vol)
     //calucule age
 }
 */
-
+}
 
 
 

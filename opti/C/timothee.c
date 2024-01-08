@@ -179,8 +179,7 @@ void afficherTableauHeure(int *tableau_heure, int taille)
 int* heure(struct Vol tableau_vols[], int nombre_vols)
 {
 
-        char heure[50] = "a l'heure";
-
+    char heure[50] = "a l'heure";
     size_t taille_heure = strlen(heure);
     int tableau_heure[50];
     int taille_tableau_heure = 0;
@@ -217,34 +216,41 @@ int* heure(struct Vol tableau_vols[], int nombre_vols)
 
 void testtab(int tableau_retard[], int taille_retard, struct Vol tableau_vols[], int nombre_vols,int tableau_heure[])
 {
-    int diff, avant, val,i;
+    int diff, avant,i,val;
+    int taille = nombre_vols;
+
+
     int taille_tableau = sizeof(tableau_retard) / sizeof(tableau_retard[0]);
 
 
-    for (i = 0; i <= 20; i++)
-    {
-        printf("%d\n",i);
 
-        //diff = (tableau_vols[i + 1].heure_decollage - tableau_vols[i].heure_decollage);
+
+    for (i = 0; i < taille - 1; i++)
+    {
+
+
+        diff = (tableau_vols[i + 1].heure_decollage - tableau_vols[i].heure_decollage);
         avant = tableau_vols[i].heure_decollage + 5;
-        printf("%d\n", avant);
+        //printf("%d\n", tableau_retard[i]);
         val = tableau_retard[i];
 
-        /*if (diff >= 60)
+        if (diff >= 60)
         {
             diff = diff - 40;
-            printf("flag3\n");
-            printf("%d\n", diff);
+
         }
 
-        printf("%d\n", avant);
+        //printf("%d\n", avant);
 
         if (diff >= 10)
         {
-            printf("flag4\n");
-            printf("L'avion prevu a %d decollera a %d\n",val, avant);
-            printf("flag5\n");
-        }*/
+
+
+            printf("%d %d\n",diff, avant);
+
+        }
     }
+
 }
+
 
