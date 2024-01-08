@@ -62,12 +62,14 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
         // Extraction des informations des passagers
         while (passager != NULL && i < MAX_PASSENGERS_PER_FLIGHT)
         {
-            sscanf(passager, "%29[^,],%29[^,],%10[^,],%d,%f",
-                   tableau_vols[*nombre_vols].passagers[i].nom,
-                   tableau_vols[*nombre_vols].passagers[i].prenom,
-                   tableau_vols[*nombre_vols].passagers[i].date_naissance,
-                   &tableau_vols[*nombre_vols].passagers[i].numero_siege,
-                   &tableau_vols[*nombre_vols].passagers[i].prix_billet);
+            sscanf(passager, "%29[^,],%29[^,],%2d/%2d/%4d,%d,%f",
+           tableau_vols[*nombre_vols].passagers[i].nom,
+           tableau_vols[*nombre_vols].passagers[i].prenom,
+           &tableau_vols[*nombre_vols].passagers[i].jour_naissance,
+           &tableau_vols[*nombre_vols].passagers[i].mois_naissance,
+           &tableau_vols[*nombre_vols].passagers[i].annee_naissance,
+           &tableau_vols[*nombre_vols].passagers[i].numero_siege,
+           &tableau_vols[*nombre_vols].passagers[i].prix_billet);
 
             passager = strtok(NULL, ";");
             i++;

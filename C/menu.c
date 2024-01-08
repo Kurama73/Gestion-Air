@@ -24,8 +24,6 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
         printf("2- Rechercher un vol\n");
         printf("3- Afficher les passagers d'un vol\n");
         printf("4- Trier les billets par prix\n");
-        printf("5- Trier par age\n");
-        printf("6- trier alphabetiquement les noms\n");
         printf("Choix : ");
         scanf("%d", &choix);
 

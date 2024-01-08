@@ -23,7 +23,9 @@ struct Passager
 {
     char nom[CINQUANTE];
     char prenom[CINQUANTE];
-    char date_naissance[ONZE];
+    int jour_naissance;
+    int mois_naissance;
+    int annee_naissance;
     int numero_siege;
     float prix_billet;
 };

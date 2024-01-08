@@ -53,7 +53,8 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
     while (i < nombre_passagersA && j < nombre_passagersB)
     {
         // TODO enzo tri du plus tot au plus tard et du plus cher au moins cher
-       if (tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet)
+       if ((tableau_passagersA[i].numero_siege < tableau_passagersB[j].numero_siege)
+            || (tableau_passagersA[i].numero_siege == tableau_passagersB[j].numero_siege && tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet))
 
         {
             tab_final[k] = tableau_passagersA[i];

@@ -14,10 +14,12 @@ void afficherPassagers(struct Vol tableau_vols[], int numero_vol) // A modifier 
 {
     for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
     {
-        printf("| %-18s | %-18s | %-17s | %-5d | %-11.2f |\n",
+        printf("| %-18s | %-18s | %02d/%02d/%4d | %-5d | %-11.2f |\n",
                tableau_vols[numero_vol - 1].passagers[i].nom,
                tableau_vols[numero_vol - 1].passagers[i].prenom,
-               tableau_vols[numero_vol - 1].passagers[i].date_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].mois_naissance,
+               tableau_vols[numero_vol - 1].passagers[i].annee_naissance,
                tableau_vols[numero_vol - 1].passagers[i].numero_siege,
                tableau_vols[numero_vol - 1].passagers[i].prix_billet);
     }

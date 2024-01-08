@@ -151,7 +151,7 @@
 	<stdlib.h>
 	<string.h>
 
-1704630754 source:g:\gestionair\c\enzo.c
+1704659016 source:g:\gestionair\c\enzo.c
 	"main.h"
 
 1704624438 source:g:\gestionair\c\main.c
@@ -170,5 +170,34 @@
 	"main.h"
 
 1704658170 source:g:\gestionair\c\tri_selection.c
+	"main.h"
+
+1704698916 source:f:\gestionair\c\afficher_passagers.c
+	"main.h"
+
+1704698362 f:\gestionair\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1704659016 source:f:\gestionair\c\enzo.c
+	"main.h"
+
+1704624438 source:f:\gestionair\c\main.c
+	"main.h"
+
+1704698738 source:f:\gestionair\c\menu.c
+	"main.h"
+
+1704629156 source:f:\gestionair\c\panneau_info.c
+	"main.h"
+
+1704698360 source:f:\gestionair\c\structure.c
+	"main.h"
+
+1704624438 source:f:\gestionair\c\timothee.c
+	"main.h"
+
+1704663818 source:f:\gestionair\c\tri_selection.c
 	"main.h"
 
