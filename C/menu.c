@@ -18,13 +18,15 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
     do
     {
         // Affichage des options du menu principal
-        printf("\nMenu:\n");
-        printf("0- Quitter\n");
-        printf("1- Afficher le tableau des vols\n");
-        printf("2- Rechercher un vol\n");
-        printf("3- Afficher les passagers d'un vol\n");
-        printf("Choix : ");
+        printf("\n====================== Menu Principal ======================\n");
+        printf("=                        0- Quitter                        =\n");
+        printf("=               1- Afficher le tableau des vols            =\n");
+        printf("=                    2- Rechercher un vol                  =\n");
+        printf("=             3- Afficher les passagers d'un vol           =");
+        printf("\n============================================================\n");
+        printf("Choix :");
         scanf("%d", &choix);
+
 
         // Switch pour traiter le choix de l'utilisateur
         switch (choix)
@@ -47,11 +49,12 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             do
             {
                 // Affichage des options du sous-menu
-                printf("\nRechercher un vol:\n");
-                printf("0- Retour au menu principal\n");
-                printf("1- Rechercher par heures de decollage\n");
-                printf("2- Rechercher par destination\n");
-                printf("3- Rechercher par compagnies\n");
+                printf("\n=================== Rechercher un vol =====================\n");
+                printf("=              0- Retour au menu principal                =\n");
+                printf("=          1- Rechercher par heures de decollage          =\n");
+                printf("=              2- Rechercher par destination              =\n");
+                printf("=             3- Rechercher par compagnies                =");
+                printf("\n===========================================================\n");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);
 

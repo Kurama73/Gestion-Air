@@ -19,7 +19,7 @@
         // Vérifier si le passager a moins de 12 ans
         if (estMoins12ans(tableau_vols[numero_vol - 1].passagers[i]))
         {
-            printf("| %-18s | %-18s | %02d/%02d/%4d | %-5d | %-11.2f |\n",
+            printf("| %-18s | %-18s | %02d/%02d/%4d        | %-5d | %-11.2f |\n",
                    tableau_vols[numero_vol - 1].passagers[i].nom,
                    tableau_vols[numero_vol - 1].passagers[i].prenom,
                    tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
@@ -40,7 +40,7 @@ void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
         // Vérifier si le passager a moins de 12 ans
         if (estPlus12ans(tableau_vols[numero_vol - 1].passagers[i]))
         {
-            printf("| %-18s | %-18s | %02d/%02d/%4d | %-5d | %-11.2f |\n",
+            printf("| %-18s | %-18s | %02d/%02d/%4d        | %-5d | %-11.2f |\n",
                    tableau_vols[numero_vol - 1].passagers[i].nom,
                    tableau_vols[numero_vol - 1].passagers[i].prenom,
                    tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
@@ -75,8 +75,8 @@ int estPlus12ans(struct Passager passager)
 void afficherPassagers_entete(int numero_vol)
 {
     printf("\nPassagers du vol %d :\n", numero_vol);
-    printf("===========================================================\n");
+    printf("|===================================================================================|\n");
     printf("| Nom                | Prenom             | Date de naissance | Siege | Prix billet |\n");
-    printf("===========================================================\n");
+    printf("|===================================================================================|\n");
 }
 
