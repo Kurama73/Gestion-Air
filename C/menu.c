@@ -49,9 +49,9 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 // Affichage des options du sous-menu
                 printf("\nRechercher un vol:\n");
                 printf("0- Retour au menu principal\n");
-                printf("1- Afficher les heures d'un vol\n");
-                printf("2- Afficher les destinations d'un vol\n");
-                printf("3- Afficher les compagnies\n");
+                printf("1- Rechercher par heures de décollage\n");
+                printf("2- Rechercher par destination\n");
+                printf("3- Rechercher par compagnies\n");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);
 
