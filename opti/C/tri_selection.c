@@ -78,8 +78,8 @@ void tri_fusion(struct Vol tableau_vols[], int numero_vol) {
     {
         int mid = n / 2;
 
-        tri_fusion(tableau_vols, numero_vol, tab, mid);
-        tri_fusion(tableau_vols, numero_vol, tab + mid, n - mid);
+       // tri_fusion(tableau_vols, numero_vol, tab, mid);
+//        tri_fusion(tableau_vols, numero_vol, tab + mid, n - mid);
         // Utilisation d'un tableau temporaire pour l'interclassement
         struct Passager tab3[MAX_PASSAGERS];
         interclassement(tableau_vols[numero_vol - 1].passagers, mid, tableau_vols[numero_vol - 1].passagers + mid, n - mid, tab3);
