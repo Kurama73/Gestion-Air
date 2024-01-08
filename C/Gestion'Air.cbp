@@ -53,7 +53,7 @@
 		<Unit filename="timothee.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="tri_selection.c">
+		<Unit filename="tri.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />

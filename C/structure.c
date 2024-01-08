@@ -71,6 +71,7 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
            &tableau_vols[*nombre_vols].passagers[i].numero_siege,
            &tableau_vols[*nombre_vols].passagers[i].prix_billet);
 
+
             passager = strtok(NULL, ";");
             i++;
         }

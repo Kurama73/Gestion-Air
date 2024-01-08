@@ -172,36 +172,41 @@
 1704658170 source:g:\gestionair\c\tri_selection.c
 	"main.h"
 
-<<<<<<< HEAD
-1704698916 source:f:\gestionair\c\afficher_passagers.c
+1704658170 D
+
+1704700456 source:f:\gestionair\c\afficher_passagers.c
 	"main.h"
 
-1704698362 f:\gestionair\c\main.h
+1704700392 f:\gestionair\c\main.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1704659016 source:f:\gestionair\c\enzo.c
+1704700526 source:f:\gestionair\c\enzo.c
 	"main.h"
 
-1704624438 source:f:\gestionair\c\main.c
+1704700158 source:f:\gestionair\c\main.c
 	"main.h"
 
-1704698738 source:f:\gestionair\c\menu.c
+1704700158 source:f:\gestionair\c\menu.c
 	"main.h"
 
-1704629156 source:f:\gestionair\c\panneau_info.c
+1704700158 source:f:\gestionair\c\panneau_info.c
 	"main.h"
 
-1704698360 source:f:\gestionair\c\structure.c
+1704700364 source:f:\gestionair\c\structure.c
 	"main.h"
 
-1704624438 source:f:\gestionair\c\timothee.c
+1704700158 source:f:\gestionair\c\timothee.c
 	"main.h"
 
 1704663818 source:f:\gestionair\c\tri_selection.c
-=======
+
 1704491619 source:c:\users\traza\documents\cours\c\gestionair\c\timothee.c
->>>>>>> fb1f15953c3520ab057fbc56c15b4fa63f83cf4f
+
+1704491619 f15953c3520ab057fbc56c15b4fa63f83cf4f
+	"main.h"
+
+1704700674 source:f:\gestionair\c\tri.c
 	"main.h"
 
