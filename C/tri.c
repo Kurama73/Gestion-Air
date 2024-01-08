@@ -128,7 +128,7 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
     }
      int taille = sizeof(tab3) / sizeof(tab3[0]);
 
-    // Boucle pour afficher les éléments du tableau
+    // Boucle pour afficher les lments du tableau
     for (int i = 0; i < taille; i++) {
         printf("Element %d : %d\n", i, tab3[i]);
 =======
