@@ -78,15 +78,13 @@ def tri_selection(tab):
                 compteur = compteur + 2
             j = j + 1
             compteur = compteur + 2
-
         compteur = compteur + 1
         tmp = tab[i]
         tab[i] = tab[min]
         tab[min] = tmp
         i = i + 1
         compteur = compteur + 5
-
-    compteur = compteur + 1
+    compteur = compteur + 2
     print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
@@ -99,6 +97,7 @@ def copie(tab1, tab2):
         tab2[i] = tab1[i]
         i = i + 1
         compteur = compteur + 4
+    compteur = compteur + 1
     return (compteur)
         
 def interclassement(left, right, tab):
@@ -116,30 +115,29 @@ def interclassement(left, right, tab):
             j += 1
             k += 1
             compteur = compteur + 5
-
+    compteur = compteur + 3
     while i < len(left):
         tab[k] = left[i]
         i += 1
         k += 1
         compteur = compteur + 6
+    compteur = compteur + 1
 
     while j < len(right):
         tab[k] = right[j]
         j += 1
         k += 1
         compteur = compteur + 6
-    #add = copie(tab1, tab2)
-    #compteur = compteur + add
+    compteur = compteur + 1
     return compteur
 
 def tri_fusion(tab):
-    
     compteur = 0
     n = len(tab)
     compteur = compteur + 1
     if n > 1:
         mid = n // 2
-        compteur = compteur + 1
+        compteur = compteur + 2
         left = tab[:mid]
         compteur = compteur + 1
         right = tab[mid:]
@@ -158,8 +156,6 @@ def tri_fusion(tab):
         copie(tab3, tab)
         compteur = compteur + 1
         compteur = compteur + compteur1 
-        
-    #print(f"Nombre d'operations elementaires du tri par selection : {compteur}")    
     return(compteur)
 
 def trie_bulle(tab):
@@ -183,8 +179,7 @@ def trie_bulle(tab):
             i += 1
             compteur = compteur + 2
         n -= 1
-        compteur = compteur + 2
-
+        compteur = compteur + 4
     return compteur
 
 def recherche_dicho(tab:[int],e:int):
@@ -199,6 +194,7 @@ def recherche_dicho(tab:[int],e:int):
         millieu = (fin + deb) //2
 
         compteur = 4 + compteur
+    compteur = compteur + 1
 
         if tab[millieu] < e:
 
@@ -213,15 +209,12 @@ def recherche_dicho(tab:[int],e:int):
         else:
 
             break
-           
-
-    #print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
 def recherche(tab, ind):
     compteur=0
     a = ind
-    compteur = compteur + 2
+    compteur = compteur + 1
     i = 0
     compteur = compteur + 1
     n = len(tab)
@@ -232,13 +225,14 @@ def recherche(tab, ind):
     while i < n:
         compteur = compteur + 1
         if tab[i] == a:
-            compteur = compteur + 2
+            compteur = compteur + 1
             ind = i
             compteur = compteur + 1
             break 
         else:
             i += 1
             compteur = compteur + 2
+    compteur = compteur + 1
 
     if ind != -1:
         compteur = compteur + 1
