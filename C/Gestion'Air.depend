@@ -227,3 +227,33 @@
 1704917550 source:c:\users\traza\documents\cours\c\gestionair\c\tri.c
 	"main.h"
 
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\afficher_passagers.c
+	"main.h"
+
+1704925483 c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\enzo.c
+	"main.h"
+
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\main.c
+	"main.h"
+
+1704926818 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\menu.c
+	"main.h"
+
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\panneau_info.c
+	"main.h"
+
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\structure.c
+	"main.h"
+
+1704926847 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\timothee.c
+	"main.h"
+
+1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\tri.c
+	"main.h"
+

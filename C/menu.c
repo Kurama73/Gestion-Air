@@ -12,7 +12,7 @@
 // Afficher le menu principal
 void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TOM
 {
-    int choix;
+    int choix,heure;
 
     // Boucle principale du menu
     do
@@ -54,7 +54,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 printf("|              0- Retour au menu principal                |\n");
                 printf("|          1- Rechercher par heures de decollage          |\n");
                 printf("|              2- Rechercher par destination              |\n");
-                printf("|             3- Rechercher par compagnies                |");
+                printf("|              3- Rechercher par compagnies                |");
                 printf("\n===========================================================\n");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);
@@ -68,10 +68,20 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
 
                 case 1:
                     // Afficher les heures d'un vol
-                    printf("Entrez l'heure de décollage : ");
-                    int heure;
-                    scanf("%d", &heure);
-                    afficherVolHeure(tableau_vols, heure, nombre_vols);
+                    do {
+                    printf("Entrez l'heure de decollage (hhmm) : ");
+                    if (scanf("%d", &heure) == 1)
+                    {
+                        afficherVolHeure(tableau_vols, heure, nombre_vols);
+                        break;
+                    }
+                    else
+                    {
+                        while (getchar() != '\n');
+                        printf("Erreur. Veuillez entrer une heure valide (entier).\n");
+                    }
+                    }
+                    while (1);
                     break;
 
                 case 2:
@@ -85,7 +95,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                     break;
 
                 default:
-                    printf("Choix non valide. Veuillez réessayer.\n");
+                    printf("Choix non valide. Veuillez reessayer.\n");
                 }
 
             } while (sousChoix != 0);
@@ -105,7 +115,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             break;
 
         default:
-            printf("Choix non valide. Veuillez réessayer.\n");
+            printf("Choix non valide. Veuillez reessayer.\n");
         }
 
     } while (choix != 0);

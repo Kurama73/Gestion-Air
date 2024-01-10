@@ -73,7 +73,7 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
     }
 
     if (!destinationTrouvee)
-        printf("Aucun vol prvu pour cette destination.\n");
+        printf("Aucun vol prevu pour cette destination.\n");
 }
 
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
@@ -112,7 +112,7 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
         printf("Aucune compagnie de ce nom.\n");
 }
 
-void afficherTableauRetards(int *tableau_retard, int taille)
+void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 {
     for (int i = 0; i < taille; i++)
     {
@@ -126,7 +126,7 @@ void afficherTableauRetards(int *tableau_retard, int taille)
 
 
 
-void opti(struct Vol tableau_vols[], int nombre_vols)
+void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     char heure[50] = "a l'heure";
     size_t taille_heure = strlen(heure);
