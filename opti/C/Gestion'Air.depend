@@ -126,10 +126,11 @@
 1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\afficher_passagers.c
 	"main.h"
 
-1704702878 c:\users\traza\documents\cours\c\gestionair\opti\c\main.h
+1704922751 c:\users\traza\documents\cours\c\gestionair\opti\c\main.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<stdbool.h>
 
 1704699881 source:c:\users\traza\documents\cours\c\gestionair\opti\c\enzo.c
 	"main.h"
@@ -137,7 +138,7 @@
 1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\main.c
 	"main.h"
 
-1704702888 source:c:\users\traza\documents\cours\c\gestionair\opti\c\menu.c
+1704920689 source:c:\users\traza\documents\cours\c\gestionair\opti\c\menu.c
 	"main.h"
 
 1704491619 source:c:\users\traza\documents\cours\c\gestionair\opti\c\panneau_info.c
@@ -149,6 +150,6 @@
 1704699900 source:c:\users\traza\documents\cours\c\gestionair\opti\c\tri_selection.c
 	"main.h"
 
-1704702679 source:c:\users\traza\documents\cours\c\gestionair\opti\c\timothee.c
+1704922974 source:c:\users\traza\documents\cours\c\gestionair\opti\c\timothee.c
 	"main.h"
 

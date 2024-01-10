@@ -118,11 +118,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
 
         case 7:
 
-            tableau_retard = retard(tableau_vols, nombre_vols);
-            tableau_heure = heure(tableau_vols, nombre_vols);
-            int taille_retard = 50;
-            int taille_heure = 50;
-            testtab(tableau_retard, taille_retard,tableau_vols, nombre_vols,tableau_heure);
+            opti(tableau_vols, nombre_vols);
             break;
 
 

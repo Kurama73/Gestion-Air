@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Déclaration des constantes et structures
 #define MAX_FLIGHTS 100
@@ -62,4 +63,4 @@ int* retard(struct Vol tableau_vols[], int nombre_vols);
 void test(struct Vol tableau_vols[], int nombre_vols);
 void afficherTableauHeure(int *tableau_heure, int taille);
 void annule(struct Vol tableau_vols[], int nombre_vols);
-void testtab(int tableau_retard[], int taille_retard, struct Vol tableau_vols[], int nombre_vols, int tableau_heure[]);
+void opti(struct Vol tableau_vols[], int nombre_vols);

@@ -22,9 +22,10 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
         printf("|                        0- Quitter                        |\n");
         printf("|               1- Afficher le tableau des vols            |\n");
         printf("|                    2- Rechercher un vol                  |\n");
-        printf("|             3- Afficher les passagers d'un vol           |");
+        printf("|             3- Afficher les passagers d'un vol           |\n");
+        printf("|                    4- Optimiser la piste                 |");
         printf("\n============================================================\n");
-        printf("Choix :");
+        printf("Choix : ");
         scanf("%d", &choix);
 
 
@@ -96,6 +97,11 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             // Afficher les passagers d'un vol
             tri_vol(tableau_vols, nombre_vols);
             panneau_passagerp(tableau_vols, nombre_vols);
+            break;
+
+        case 4:
+
+            opti(tableau_vols, nombre_vols);
             break;
 
         default:

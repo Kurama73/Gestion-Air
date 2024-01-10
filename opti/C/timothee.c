@@ -125,80 +125,27 @@ void afficherTableauRetards(int *tableau_retard, int taille)
 
 
 
-int* retard(struct Vol tableau_vols[], int nombre_vols)
+
+
+
+
+void opti(struct Vol tableau_vols[], int nombre_vols)
 {
-    char retard[50] = "retarde";
-    char val[3];
-    char heure[50] = "a l'heure";
-
-    size_t taille_heure = strlen(heure);
-    int tableau_heure[50];
-    int taille_tableau_heure = 0;
-    int compagnieTrouvee = 0;
-    size_t longueurRetard = strlen(retard);
-    int num, volretard, surplus, tableau_retard[50], taille_retard = 0, test;
-
-    for (int i = 0; i < nombre_vols; i++)
-    {
-        if (!strncasecmp(tableau_vols[i].etat_vol, retard, longueurRetard))
-        {
-            strncpy(val, tableau_vols[i].etat_vol + 9, 2);
-            val[2] = '\0';
-            compagnieTrouvee = 1;
-            num = atoi(val);
-            volretard = tableau_vols[i].heure_decollage + num;
-            surplus = volretard % 100;
-
-            if (surplus >= 60)
-            {
-                volretard = volretard + 40;
-            }
-            tableau_retard[taille_retard] = volretard;
-            taille_retard++;
-        }
-    }
-
-    //afficherTableauRetards(tableau_retard, taille_retard);
-
-
-
-
-    return tableau_retard;
-}
-
-void afficherTableauHeure(int *tableau_heure, int taille)
-{
-    for (int i = 0; i < taille; i++)
-    {
-        printf("%d\n", tableau_heure[i]);
-    }
-}
-
-
-
-int* heure(struct Vol tableau_vols[], int nombre_vols)
-{
-
     char heure[50] = "a l'heure";
     size_t taille_heure = strlen(heure);
     int tableau_heure[50];
     int taille_tableau_heure = 0;
-    int compagnieTrouvee = 0;
-    size_t longueurRetard = strlen(retard);
-    int num, volretard, surplus, tableau_retard[50], taille_retard = 0, test;
 
     for (int i = 0; i < nombre_vols; i++)
     {
         if (strncasecmp(tableau_vols[i].etat_vol, heure, taille_heure) == 0)
         {
-            tableau_heure[taille_tableau_heure] = tableau_vols[i].heure_decollage; // Ajouter le numéro du vol annulé
+            tableau_heure[taille_tableau_heure] = tableau_vols[i].heure_decollage;
             taille_tableau_heure++;
         }
     }
-
     /*if (taille_tableau_heure > 0)
     {
-        // Afficher les vols a l'heure
         printf("Vols a l'heure :\n");
         for (int i = 0; i < taille_tableau_heure; i++)
         {
@@ -209,48 +156,82 @@ int* heure(struct Vol tableau_vols[], int nombre_vols)
     {
         printf("Aucun vol annule.\n");
     }*/
-}
 
+    char retard[50] = "retarde";
+    size_t longueurRetard = strlen(retard);
+    int tableau_retard[50];
+    int taille_retard = 0;
 
-
-
-void testtab(int tableau_retard[], int taille_retard, struct Vol tableau_vols[], int nombre_vols,int tableau_heure[])
-{
-    int diff, avant,i,val;
-    int taille = nombre_vols;
-
-
-    int taille_tableau = sizeof(tableau_retard) / sizeof(tableau_retard[0]);
-
-
-
-
-    for (i = 0; i < taille - 1; i++)
+    for (int i = 0; i < nombre_vols; i++)
     {
-
-
-        diff = (tableau_vols[i + 1].heure_decollage - tableau_vols[i].heure_decollage);
-        avant = tableau_vols[i].heure_decollage + 5;
-        //printf("%d\n", tableau_retard[i]);
-        val = tableau_retard[i];
-
-        if (diff >= 60)
+        if (!strncasecmp(tableau_vols[i].etat_vol, retard, longueurRetard))
         {
-            diff = diff - 40;
+            char val[3];
+            strncpy(val, tableau_vols[i].etat_vol + 9, 2);
+            val[2] = '\0';
+            int num = atoi(val);
 
+            int volretard = tableau_vols[i].heure_decollage + num;
+            int surplus = volretard % 100;
+
+            if (surplus >= 60)
+            {
+                volretard = volretard + 40;
+            }
+            tableau_retard[taille_retard] = volretard;
+            taille_retard++;
         }
+    }
+    for (int i = 0; i < taille_retard - 1; i++) {
+        for (int j = 0; j < taille_retard - 1 - i; j++) {
+            // Comparaison et échange si nécessaire
+            if (tableau_retard[j] > tableau_retard[j + 1]) {
+                int temp = tableau_retard[j];
+                tableau_retard[j] = tableau_retard[j + 1];
+                tableau_retard[j + 1] = temp;
+            }
+        }
+    }
 
-        //printf("%d\n", avant);
+   //afficherTableauRetards(tableau_retard, taille_retard);
 
-        if (diff >= 10)
+    int diff, avant, place,chevauche;
+
+
+    for (int i = 0; i < taille_retard; i++)
+    {
+        place = tableau_retard[i];
+        //printf("%d\n",place);
+        bool sortie = false;
+
+        for (int j = 0; j < taille_tableau_heure - 1 && !sortie; j++)
         {
+            diff = tableau_heure[j + 1] - tableau_heure[j];
+            avant = tableau_heure[j] + 5;
+
+            if (diff >= 60)
+            {
+                diff = diff - 40;
+            }
 
 
-            printf("%d %d\n",diff, avant);
 
+            if (diff >= 10)
+            {
+                if ((place <= avant) && (chevauche != avant))
+                {
+
+                    chevauche = avant;
+                    printf("Le vol prevu a %d decollera a %d\n", place, avant);
+                    sortie = true;
+                }
+            }
         }
     }
 
 }
+
+
+
 
 
