@@ -10,7 +10,7 @@
 #include "main.h"
 
 
-    void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
+void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
 {
 
 
