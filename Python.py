@@ -194,21 +194,17 @@ def recherche_dicho(tab:[int],e:int):
         millieu = (fin + deb) //2
 
         compteur = 4 + compteur
-    compteur = compteur + 1
 
         if tab[millieu] < e:
-
             deb = millieu + 1
             compteur = 3 + compteur
 
         elif tab[millieu] > e:
-
             fin = millieu - 1
             compteur = 3 + compteur
-
         else:
-
             break
+    compteur = compteur + 1
     return compteur
 
 def recherche(tab, ind):
@@ -242,6 +238,11 @@ def recherche(tab, ind):
         print(a, "n'est pas présent dans le tableau.")
         compteur = compteur + 1
     return compteur
+
+
+
+
+
 
 
 print("tab_10 : ")
@@ -361,6 +362,9 @@ while i < 10:
     calcul = calcul + trie_bulle(tab_5000[i])
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
+
+
+
 
 
 
