@@ -73,7 +73,7 @@ void tri_vol(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
     {
-        const int nombre_volsA = nombre_vols / 2;
+        const int nombre_volsA = nombre_vols / DEUX;
         const int nombre_volsB = nombre_vols - nombre_volsA;
 
         // Tri de la première moitié
@@ -153,7 +153,7 @@ void tri_heure(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
     {
-        const int nombre_volsA = nombre_vols / 2;
+        const int nombre_volsA = nombre_vols / DEUX;
         const int nombre_volsB = nombre_vols - nombre_volsA;
 
         // Tri de la première moitié
@@ -177,34 +177,36 @@ void tri_heure(struct Vol tableau_vols[], const int nombre_vols)
 */
 void interclassement_prix(struct Passager tableau_passagersA[], const int nombre_passagersA, struct Passager tableau_passagersB[], const int nombre_passagersB)
 {
+    // Initialisation des indices pour les deux tableaux et le tableau final
     int i = 0, j = 0, k = 0;
 
-    // TODO enzo nom explicites et propres
+    // Calcul de la taille totale du tableau fusionné
     const int sizetab = nombre_passagersA + nombre_passagersB;
-    // TODO enzo to test
-    struct Passager tab_final[sizetab];
-    //struct Passager *tab_final = (struct Passager *)malloc(sizetab * sizeof(struct Passager));
 
+    // Allocation de mémoire pour le tableau fusionné
+    struct Passager *tab_final = (struct Passager *)malloc(sizetab * sizeof(struct Passager));
+
+    // Fusion des deux tableaux triés (tableau_passagersA et tableau_passagersB) dans tab_final
     while (i < nombre_passagersA && j < nombre_passagersB)
     {
-        // TODO enzo tri du plus tot au plus tard et du plus cher au moins cher
-       if ((tableau_passagersA[i].prix_billet > tableau_passagersB[j].prix_billet)
-            || (tableau_passagersA[i].prix_billet == tableau_passagersB[j].prix_billet && tableau_passagersA[i].nom >= tableau_passagersB[j].nom))
-
-        //if (tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet)
-
+        // Comparaison basée sur le prix du billet (du plus bas au plus élevé) puis en cas d'égalité le nom de maniere alphabetique
+        if ((tableau_passagersA[i].prix_billet > tableau_passagersB[j].prix_billet) ||
+            (tableau_passagersA[i].prix_billet == tableau_passagersB[j].prix_billet && strcmp(tableau_passagersA[i].nom, tableau_passagersB[j].nom) <= 0))
         {
+            // Copie de l'élément de tableau_passagersA vers tab_final
             tab_final[k] = tableau_passagersA[i];
             i++;
         }
         else
         {
+            // Copie de l'élément de tableau_passagersB vers tab_final
             tab_final[k] = tableau_passagersB[j];
             j++;
         }
         k++;
     }
 
+    // Copie des éléments restants de tableau_passagersA (s'il y en a)
     while (i < nombre_passagersA)
     {
         tab_final[k] = tableau_passagersA[i];
@@ -212,6 +214,7 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
         k++;
     }
 
+    // Copie des éléments restants de tableau_passagersB (s'il y en a)
     while (j < nombre_passagersB)
     {
         tab_final[k] = tableau_passagersB[j];
@@ -219,12 +222,14 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
         k++;
     }
 
+    // Copie du tableau fusionné (tab_final) vers tableau_passagersA
     for (int i = 0; i < sizetab; i++)
     {
         tableau_passagersA[i] = tab_final[i];
     }
 
-    //free(tab_final);
+    // Libération de la mémoire allouée pour tab_final
+    free(tab_final);
 }
 
 /**
@@ -238,12 +243,15 @@ void tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
 {
     if (nombre_passagers > 1)
     {
-        const int nombre_passagersA = nombre_passagers / 2;
+        const int nombre_passagersA = nombre_passagers / DEUX;
         const int nombre_passagersB = nombre_passagers - nombre_passagersA;
 
+        // Tri de la première moitié
         tri_prix(tableau_passagers, nombre_passagersA);
+        // Tri de la deuxieme moitié
         tri_prix(tableau_passagers + nombre_passagersA, nombre_passagersB);
 
+        // Utilisation d'un tableau temporaire pour l'interclassement
         interclassement_prix(tableau_passagers, nombre_passagersA, tableau_passagers + nombre_passagersA, nombre_passagersB);
     }
 }

@@ -21,11 +21,11 @@
 // Charger les donnes depuis le CSV
 void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
 {
-    char nom_fic[100]; // Allouer de l'espace pour le nom du fichier
-    char ligne[1000];
+    char nom_fic[CENT]; // Allouer de l'espace pour le nom du fichier
+    char ligne[MILLE];
     char *nom_fichier;
     // Allocation de mmoire pour le nom du fichier
-    nom_fichier = (char *)malloc(100 * sizeof(char));
+    nom_fichier = (char *)malloc(CENT * sizeof(char));
 
     // Vrifier si l'allocation de mmoire a russi
     if (nom_fichier == NULL)
@@ -48,7 +48,7 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
     // Lecture du fichier ligne par ligne
     while (fgets(ligne, sizeof(ligne), pt_fichier) != NULL && *nombre_vols < MAX_FLIGHTS)
     {
-        char liste_passagers[1000];
+        char liste_passagers[MILLE];
 
         // Utilisation de sscanf pour extraire les donnes de la ligne du CSV
         sscanf(ligne, "%d,%29[^,],%29[^,],%d,%d,%d,%d,%d,%d,%d,%19[^,],\"%999[^\"]\"",

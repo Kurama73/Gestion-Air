@@ -1,6 +1,6 @@
 /**
  * \file     thimothee.c
- * \brief   
+ * \brief
  * \author   Timothe Razafindranary
  * \version  0.1
  * \date     19/12/23
@@ -20,16 +20,15 @@
 */
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //Timothee
 {
-    printf("====================================================================================================================================\n");
-    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers |\n");
-    printf("====================================================================================================================================\n");
-
+    printf("================================================================================================================================================================================================================\n");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
         // Vrifier si l'heure de dcollage est proche de l'heure spcifie
-        if ((tableau_vols[i].heure_decollage >= heure - 100) && (tableau_vols[i].heure_decollage <= heure + 100))
+        if ((tableau_vols[i].heure_decollage >= heure - CENT) && (tableau_vols[i].heure_decollage <= heure + CENT))
         {
-            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
+            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-17s | %-17d\n",
                    tableau_vols[i].numero_vol,
                    tableau_vols[i].compagnie,
                    tableau_vols[i].destination,
@@ -59,17 +58,20 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la destination : ");
-    char destination[50];
+    char destination[CINQUANTE];
     scanf("%s", &destination);
 
     int destinationTrouvee = 0;
     size_t longueurDestination = strlen(destination);
 
+    printf("================================================================================================================================================================================================================\n");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
         if (strncasecmp(tableau_vols[i].destination, destination, longueurDestination) == 0)
         {
-            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
+            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-17s | %-17d\n",
                 tableau_vols[i].numero_vol,
                 tableau_vols[i].compagnie,
                 tableau_vols[i].destination,
@@ -104,17 +106,20 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la compagnie : ");
-    char compagnie[50];
+    char compagnie[CINQUANTE];
     scanf("%s", compagnie);
 
     int compagnieTrouvee = 0;
     size_t longueurCompagnie = strlen(compagnie);
 
+    printf("================================================================================================================================================================================================================\n");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
         if (strncasecmp(tableau_vols[i].compagnie, compagnie, longueurCompagnie) == 0)
         {
-            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
+            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-17s | %-17d\n",
                 tableau_vols[i].numero_vol,
                 tableau_vols[i].compagnie,
                 tableau_vols[i].destination,
@@ -169,9 +174,9 @@ void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 */
 void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
-    char heure[50] = "a l'heure";
+    char heure[CINQUANTE] = "a l'heure";
     size_t taille_heure = strlen(heure);
-    int tableau_heure[50];
+    int tableau_heure[CINQUANTE];
     int taille_tableau_heure = 0;
 
     for (int i = 0; i < nombre_vols; i++)
@@ -197,9 +202,9 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
         printf("Aucun vol annule.\n");
     }*/
 
-    char retard[50] = "retarde";
+    char retard[CINQUANTE] = "retarde";
     size_t longueurRetard = strlen(retard);
-    int tableau_retard[50];
+    int tableau_retard[CINQUANTE];
     int taille_retard = 0;
 
     for (int i = 0; i < nombre_vols; i++)
@@ -212,7 +217,7 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             int num = atoi(val);
 
             int volretard = tableau_vols[i].heure_decollage + num;
-            int surplus = volretard % 100;
+            int surplus = volretard % CENT;
 
             if (surplus >= 60)
             {
@@ -251,8 +256,8 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 
             diff = tableau_heure[j + 1] - tableau_heure[j];
             avant = tableau_heure[j] + 5;
-            int ajuste1 = tableau_heure[j] % 100;
-            int ajuste2 = tableau_heure[j+1] % 100;
+            int ajuste1 = tableau_heure[j] % CENT;
+            int ajuste2 = tableau_heure[j+1] % CENT;
 
             if (ajuste1 > ajuste2)
             {

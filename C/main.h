@@ -17,6 +17,16 @@
 #define VINGT 20
 #define ONZE 11
 #define CINQUANTE 50
+#define CENT 100
+#define MILLE 1000
+#define SIX_CENT 600
+#define TRENTE 30
+#define DEUX_MILLE_DEUX_CENT 2200
+#define CINQ 5
+#define TROIS_CENT 300
+#define DEUX 2
+#define DOUZE 12
+#define DEUX_MILLE_VINGT_QUATRE 2024
 
 
 // Structure reprsentant un passager

@@ -64,14 +64,14 @@ while i < 5000:
 
 
 
-"""
-:entrée/sortie tab: int
-:pré-cond: len(tab) >= 1
-:sortie compteur: int
-:post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche et 
-trier les éléments d'un tableau en sélectionnant un par un les éléments du tableau, du plus petit au plus grand.
-"""
+
 def tri_selection(tab):
+    """
+    :entrée/sortie tab: [int]
+    :pré-cond: len(tab) >= 1
+    :sortie compteur: int
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant la recherche et trier les éléments d'un tableau en sélectionnant un par un les éléments de tab, du plus petit au plus grand.
+    """
     compteur = 0
     i = 0
     j = 0
@@ -101,11 +101,11 @@ def tri_selection(tab):
 
 def copie(tab1, tab2):
     """
-    :entrée/sortie tab2: int
-    :entrée tab1: int 
+    :entrée/sortie tab2: [int]
+                   tab1: [int] 
     :pré-cond: len(tab1) = len(tab2)
     :sortie compteur: int
-    :post-cond: ajoute +1 pour chaque operateur utiliser durant la copie et effectue une copie élément par élément de tab1 vers tab2.
+    :post-cond: ajoute +1 a compteur pour chaque operateur utiliser durant la copie et effectue une copie élément par élément de tab1 vers tab2.
     """
     compteur = 0
     n = len(tab1)
@@ -127,11 +127,10 @@ def interclassement(left, right, tab):
     """
     :entrée left
     :entrée right
-    :entrée/sortie tab
-    :pré-cond: len(tab) = len(right) + len(left) 
-    right et left sont triés
-    :sortie compteur
-    :post-cond: ajouter +1 pour chaque operateur utiliser durant le tri et 
+    :entrée/sortie tab: [int]
+    :pré-cond: len(tab) = len(right) + len(left) right et left sont triés
+    :sortie compteur: int
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant le tri et 
     tab contient tous les éléments de left et right, et est trié
     """
     compteur = 0
@@ -171,8 +170,7 @@ def tri_fusion(tab):
     :entrée/sortie tab: [ind]
     :pré-cond: len(tab) >= 1
     :sortie compteur: int
-    :post-cond: ajouter +1 pour chaque operateur utiliser durant le tri Le principe est de partager le tableau en deux moitiés, de 
-    les trier récursivement, puis de fusionner ces deux moitiés triées de façon à obtenir un tableau trié.  
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant le tri de tab. Le principe est de partager le tableau en deux moitiés, de les trier récursivement, puis de fusionner ces deux moitiés triées de façon à obtenir un tableau trié.  
     """
     compteur = 0
     n = len(tab)
@@ -209,8 +207,7 @@ def trie_bulle(tab):
     :entrée/sortie tab: [int]
     :pré-cond: len(tab) >= 1
     :sortie compteur: int
-    :post-cond: ajouter +1 pour chaque operateur utiliser durant le tri et le tri compare les éléments consécutifs du tableau
-    et les permutes s'ils ne sont pas dans le bonne ordre
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant le tri de tab et le tri compare les éléments consécutifs du tableau et les permutes s'ils ne sont pas dans le bonne ordre.
     """
     compteur = 0
     n = len(tab)
@@ -245,8 +242,7 @@ def recherche_dicho(tab:[int], e:int):
     :entrée e: int
     :pré-cond: ∀i ∈ [0..len(tab)-2], tab[i] <= tab[i+1] 
     :sortie compteur: int
-    :post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche et S'il existe i ∈ [0..len(tab)-1] tel que tab[i] = e
-    alors ind ∈ [0..len(tab)-1] et tab[ind] = e, sinon ind = -1. 
+    :post-cond: ajouter +1 a compteur pour chaque operateur utilisé durant la recherche et S'il existe i ∈ [0..len(tab)-1] tel que tab[i] = e, alors ind ∈ [0..len(tab)-1] et tab[ind] = e, sinon ind = -1. 
     """
     tri_fusion(tab)
     compteur = 0
@@ -276,14 +272,15 @@ def recherche_dicho(tab:[int], e:int):
 
 
 
-"""
-:entrée/sortie tab: [int]
-:entrée valeur_recherchee: int
-:pré-cond:
-:sortie compteur: int 
-:post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche
-"""
+
 def recherche(tab, valeur_recherchee):
+    """
+    :entrée/sortie tab: [int]
+    :entrée valeur_recherchee: int
+    :pré-cond: ∀i ∈ [0..len(tab)-2], tab[i] <= tab[i+1] 
+    :sortie compteur: int 
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant la recherche
+    """
     tri_fusion(tab)
     compteur = 0
     i = 0
@@ -322,8 +319,7 @@ def recherche_dicho_recursive(tab, e):
     :entrée e: int
     :pré-cond: ∀i ∈ [0..len(tab)-2], tab[i] <= tab[i+1] 
     :sortie compteur: int
-    :post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche et 
-    s'il existe i ∈ [0..len(tab)-1] tel que tab[i] = e alors ind ∈ [0..len(tab)-1] et tab[ind] = e, sinon ind = -1. 
+    :post-cond: ajouter +1 a compteur pour chaque operateur utiliser durant la recherche et s'il existe i ∈ [0..len(tab)-1] tel que tab[i] = e alors ind ∈ [0..len(tab)-1] et tab[ind] = e, sinon ind = -1. 
     """
     tri_fusion(tab)
     n = len(tab)
