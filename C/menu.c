@@ -54,7 +54,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 printf("|              0- Retour au menu principal                |\n");
                 printf("|          1- Rechercher par heures de decollage          |\n");
                 printf("|              2- Rechercher par destination              |\n");
-                printf("|              3- Rechercher par compagnies                |");
+                printf("|              3- Rechercher par compagnies               |");
                 printf("\n===========================================================\n");
                 printf("Choix : ");
                 scanf("%d", &sousChoix);

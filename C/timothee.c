@@ -9,7 +9,16 @@
 
 #include "main.h"
 
-// Afficher les vols dont l'heure de décollage est proche d'une heure donnée
+
+
+/**
+* /fn  afficherVolHeure(tableau_vols[],heure, nombre_vols)
+* /brief Afficher les vols dont l'heure de décollage est proche d'une heure donnée
+*
+* /param tableau_vols est un tableau, heure est un entier saisi et nombre_vols est un entier
+* /return rien
+*/
+
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //Timothee
 {
     printf("====================================================================================================================================\n");
@@ -40,6 +49,13 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 
 
 
+/**
+* /fn  afficherDestination(tableau_vols[],heure, nombre_vols)
+* /brief Afficher les vols en fonction de la destination saisi
+*
+* /param tableau_vols est un tableau et nombre_vols est un entier
+* /return rien
+*/
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la destination : ");
@@ -211,7 +227,6 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             avant = tableau_heure[j] + 5;
             int ajuste1 = tableau_heure[j] % 100;
             int ajuste2 = tableau_heure[j+1] % 100;
-            printf("diff 1 :%d\n",diff);
 
             if (ajuste1 > ajuste2)
             {
@@ -221,7 +236,6 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             {
                 diff = diff - 40;
             }
-            printf("diff 2 :%d\n\n",diff);
 
 
 
