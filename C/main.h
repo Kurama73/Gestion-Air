@@ -1,7 +1,7 @@
 /**
  * \file     main.c
  * \brief
- * \author   Tom FRUMY et Thimothée RAZAFINDRANARY et Enzo SACCONE
+ * \author   Tom FRUMY et Timothée RAZAFINDRANARY et Enzo SACCONE
  * \version  0.1
  * \date     19/12/23
  */

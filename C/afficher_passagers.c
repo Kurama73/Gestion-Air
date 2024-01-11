@@ -9,7 +9,14 @@
 
 #include "main.h"
 
-
+/**
+* \fn  afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
+* \brief Affiche le tableau des passagers de moins de 12 ans
+*
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return rien
+* \post rien
+*/
 void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
 {
 
@@ -31,6 +38,14 @@ void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
     }
 }
 
+/**
+* \fn  afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
+* \brief Affiche le tableau des passagers de moins de 12 ans
+*
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return rien
+* \post rien
+*/
 void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
 {
 
@@ -52,7 +67,15 @@ void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
     }
 }
 
-// Fonction pour vérifier si un passager a moins de 12 ans
+/**
+* \fn  estMoins12ans(struct Passager passager)
+* \brief Fonction pour vérifier si un passager a moins de 12 ans
+*
+* \param passager est un tableau
+* \return entier
+* \post age < 12 si l'age est plus petit que 12
+*/
+
 int estMoins12ans(struct Passager passager)
 {
     // Supposons que nous sommes en 2024 (vous pouvez ajuster cela en fonction de l'année actuelle)
@@ -62,7 +85,14 @@ int estMoins12ans(struct Passager passager)
     return age < 12;
 }
 
-
+/**
+* \fn  estPLus12ans(struct Passager passager)
+* \brief Fonction pour vérifier si un passager a plus de 12 ans
+*
+* \param passager est un tableau
+* \return entier
+* \post age >= 12 si l'age est plus grand que 12
+*/
 int estPlus12ans(struct Passager passager)
 {
     // Supposons que nous sommes en 2024 (vous pouvez ajuster cela en fonction de l'année actuelle)
@@ -72,6 +102,14 @@ int estPlus12ans(struct Passager passager)
     return age >= 12;
 }
 
+/**
+* \fn  afficherPassagers_entete(int numero_vol)
+* \brief Affiche un entête pour une meilleur visibilité
+*
+* \param  numero_vols est un entier
+* \return rien
+* \post rien
+*/
 void afficherPassagers_entete(int numero_vol)
 {
     printf("\nPassagers du vol %d :\n", numero_vol);

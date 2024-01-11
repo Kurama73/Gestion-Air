@@ -9,7 +9,14 @@
 
 #include "main.h"
 
-// Fonction principale
+/**
+* \fn int main()
+* \brief affiche les passagers en fonction du vol choisi
+*
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return 0 par convention
+* \post rien
+*/
 int main()
 {
     // Déclaration d'un tableau de structures de type Vol
