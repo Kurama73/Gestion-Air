@@ -23,7 +23,24 @@ void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
     do
     {
         printf("Entrez le numero du vol : ");
-        scanf("%d", &numero_vol);
+
+
+        while (1)
+                {
+                    if (scanf("%d", &numero_vol) == 1)
+                    {
+                        break; // Sort de la boucle si la saisie est un entier
+                    }
+                        else
+                    {
+                        printf("Erreur. Veuillez entrer un nombre entier valide.\n");
+                        while (getchar() != '\n');
+                        printf("Entrez le numero du vol : ");
+                    }
+                }
+
+
+
     }while (numero_vol < 1 || numero_vol > MAX_FLIGHTS);
 
         afficherPassagers_entete(numero_vol);
