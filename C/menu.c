@@ -36,7 +36,21 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
         printf("|                    4- Optimiser la piste                 |");
         printf("\n============================================================\n");
         printf("Choix : ");
-        scanf("%d", &choix);
+
+
+        while (1)
+                {
+                    if (scanf("%d", &choix) == 1)
+                    {
+                        break; // Sort de la boucle si la saisie est un entier
+                    }
+                        else
+                    {
+                        printf("Erreur. Veuillez entrer un nombre entier valide.\n");
+                        while (getchar() != '\n');
+                        printf("Choix : ");
+                    }
+                }
 
 
 
