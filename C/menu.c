@@ -1,6 +1,6 @@
 /**
  * \file     menu.c
- * \brief
+ * \brief    Fonction menu
  * \author   Tom FRUMY
  * \version  0.1
  * \date     19/12/23
