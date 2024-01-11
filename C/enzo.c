@@ -17,7 +17,6 @@
 * \return rien
 * \post rien
 */
-
 void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
 {
     int numero_vol;
