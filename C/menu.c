@@ -81,7 +81,8 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 printf("|              0- Retour au menu principal                |\n");
                 printf("|          1- Rechercher par heures de decollage          |\n");
                 printf("|              2- Rechercher par destination              |\n");
-                printf("|              3- Rechercher par compagnies               |");
+                printf("|              3- Rechercher par compagnies               |\n");
+                printf("|        4- Rechercher par compagnies et destination      |");
                 printf("\n===========================================================\n");
                 printf("Choix : ");
 
@@ -135,6 +136,11 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 case 3:
                     // Afficher les compagnies
                     afficherCompagnie(tableau_vols, nombre_vols);
+                    break;
+
+                case 4:
+                    // Afficher les compagnies et les destination
+                    afficherCompagnieDestination(tableau_vols, nombre_vols);
                     break;
 
                 default:

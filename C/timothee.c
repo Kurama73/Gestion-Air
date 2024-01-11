@@ -285,3 +285,50 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 
 }
 
+void afficherCompagnieDestination(struct Vol tableau_vols[], int nombre_vols)
+{
+    printf("Entrez la compagnie : ");
+
+    char compagnie[50];
+    char destination[50];
+    scanf("%s", compagnie);
+    printf("Entrez la destination : ");
+    scanf("%s",destination);
+
+    int compagnieTrouvee = 0;
+    size_t longueurCompagnie = strlen(compagnie);
+    size_t longueurDestination = strlen(destination);
+
+    printf("================================================================================================================================================================================================================\n");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("================================================================================================================================================================================================================\n");
+    for (int i = 0; i < nombre_vols; i++)
+    {
+        if ((strncasecmp(tableau_vols[i].compagnie, compagnie, longueurCompagnie) == 0) && (strncasecmp(tableau_vols[i].destination, destination, longueurDestination) == 0))
+        {
+            printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-17s | %-17d\n",
+                tableau_vols[i].numero_vol,
+                tableau_vols[i].compagnie,
+                tableau_vols[i].destination,
+                tableau_vols[i].numero_comptoir,
+                tableau_vols[i].heure_debut_enregistrement,
+                tableau_vols[i].heure_fin_enregistrement,
+                tableau_vols[i].salle_embarquement,
+                tableau_vols[i].heure_debut_embarquement,
+                tableau_vols[i].heure_fin_embarquement,
+                tableau_vols[i].heure_decollage,
+                tableau_vols[i].etat_vol,
+                tableau_vols[i].nombre_passagers);
+
+            compagnieTrouvee = 1;
+
+        }
+    }
+
+    if (!compagnieTrouvee)
+        printf("Aucune compagnie de ce nom.\n");
+
+
+
+}
+

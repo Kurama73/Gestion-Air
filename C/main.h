@@ -69,4 +69,5 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols);
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols);
 void tri_prix (struct Passager tableau_passagers[], const int nombre_passagers);
 void opti(struct Vol tableau_vols[], int nombre_vols);
+void afficherCompagnieDestination(struct Vol tableau_vols[], int nombre_vols);
 
