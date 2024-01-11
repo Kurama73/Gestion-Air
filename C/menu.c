@@ -11,12 +11,12 @@
 
 
 /**
-* \fn  menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers)
-* \brief Affiche le menu de sélection
+* \fn       menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers)
+* \brief    Affiche le menu de sélection
 *
-* \param tableau_vols est un tableau et nombre_vols / nombre_passagers sont des entiers
-* \return rien
-* \post rien
+* \param    tableau_vols est un tableau et nombre_vols / nombre_passagers sont des entiers
+* \return   rien
+* \post     rien
 */
 
 // Afficher le menu principal
