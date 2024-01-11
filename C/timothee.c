@@ -141,6 +141,7 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             taille_tableau_heure++;
         }
     }
+
     /*if (taille_tableau_heure > 0)
     {
         printf("Vols a l'heure :\n");
@@ -179,10 +180,12 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             taille_retard++;
         }
     }
-    for (int i = 0; i < taille_retard - 1; i++) {
-        for (int j = 0; j < taille_retard - 1 - i; j++) {
-            // Comparaison et échange si nécessaire
-            if (tableau_retard[j] > tableau_retard[j + 1]) {
+    for (int i = 0; i < taille_retard - 1; i++)
+    {
+        for (int j = 0; j < taille_retard - 1 - i; j++)
+        {
+            if (tableau_retard[j] > tableau_retard[j + 1])
+            {
                 int temp = tableau_retard[j];
                 tableau_retard[j] = tableau_retard[j + 1];
                 tableau_retard[j + 1] = temp;
@@ -195,21 +198,30 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
     int diff, avant, place,chevauche;
 
 
+
     for (int i = 0; i < taille_retard; i++)
     {
         place = tableau_retard[i];
-        //printf("%d\n",place);
         bool sortie = false;
 
         for (int j = 0; j < taille_tableau_heure - 1 && !sortie; j++)
         {
+
             diff = tableau_heure[j + 1] - tableau_heure[j];
             avant = tableau_heure[j] + 5;
+            int ajuste1 = tableau_heure[j] % 100;
+            int ajuste2 = tableau_heure[j+1] % 100;
+            printf("diff 1 :%d\n",diff);
 
-            if (diff >= 60)
+            if (ajuste1 > ajuste2)
             {
                 diff = diff - 40;
             }
+            if (diff > 60)
+            {
+                diff = diff - 40;
+            }
+            printf("diff 2 :%d\n\n",diff);
 
 
 
