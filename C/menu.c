@@ -153,7 +153,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             break;
 
         case 4:
-
+            tri_heure(tableau_vols, nombre_vols);
             opti(tableau_vols, nombre_vols);
             break;
 

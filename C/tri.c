@@ -73,7 +73,7 @@ void tri_vol(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
     {
-        const int nombre_volsA = nombre_vols / 2;
+        const int nombre_volsA = nombre_vols / DEUX;
         const int nombre_volsB = nombre_vols - nombre_volsA;
 
         // Tri de la première moitié
@@ -153,7 +153,7 @@ void tri_heure(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
     {
-        const int nombre_volsA = nombre_vols / 2;
+        const int nombre_volsA = nombre_vols / DEUX;
         const int nombre_volsB = nombre_vols - nombre_volsA;
 
         // Tri de la première moitié
@@ -243,7 +243,7 @@ void tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
 {
     if (nombre_passagers > 1)
     {
-        const int nombre_passagersA = nombre_passagers / 2;
+        const int nombre_passagersA = nombre_passagers / DEUX;
         const int nombre_passagersB = nombre_passagers - nombre_passagersA;
 
         // Tri de la première moitié
