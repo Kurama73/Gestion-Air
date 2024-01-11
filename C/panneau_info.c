@@ -18,7 +18,7 @@ void tableau_information(struct Vol tableau_vols[], int nombre_vols) //TOM
     do
     {
         printf("Veuillez saisir l'heure actuelle (sous la forme hhmm) : ");
-        scanf("%4s", heureActuelleStr);
+        scanf("%s", heureActuelleStr);
     } while (atoi(heureActuelleStr) < 600 || atoi(heureActuelleStr) > 2200); //conversion de la chaine de caractere en entier
 
     int heureActuelle = atoi(heureActuelleStr);

@@ -29,6 +29,8 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
         scanf("%d", &choix);
 
 
+
+
         // Switch pour traiter le choix de l'utilisateur
         switch (choix)
         {
@@ -46,6 +48,7 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
             // Sous-menu "Rechercher un vol"
             int sousChoix = -1;
 
+
             // Boucle pour le sous-menu
             do
             {
@@ -57,7 +60,23 @@ void menu(struct Vol tableau_vols[], int nombre_vols, int nombre_passagers) //TO
                 printf("|              3- Rechercher par compagnies               |");
                 printf("\n===========================================================\n");
                 printf("Choix : ");
-                scanf("%d", &sousChoix);
+
+                while (1)
+                {
+                    if (scanf("%d", &sousChoix) == 1)
+                    {
+                        break; // Sort de la boucle si la saisie est un entier
+                    }
+                        else
+                    {
+                        printf("Erreur. Veuillez entrer un nombre entier valide.\n");
+                        while (getchar() != '\n');
+                        printf("Choix : ");
+                    }
+                }
+
+
+
 
                 // Switch pour traiter le choix du sous-menu
                 switch (sousChoix)
