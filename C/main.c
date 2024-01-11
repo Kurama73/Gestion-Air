@@ -10,10 +10,10 @@
 #include "main.h"
 
 /**
-* \fn int main()
-* \brief apelle la fonction structure puis le menu
-* \return 0 par convention
-* \post rien
+* \fn       int main()
+* \brief    apelle la fonction structure puis le menu
+* \return   0 par convention
+* \post     rien
 */
 int main()
 {
