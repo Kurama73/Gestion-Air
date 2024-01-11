@@ -11,25 +11,21 @@
 
 /**
 * \fn int main()
-* \brief affiche les passagers en fonction du vol choisi
+* \brief apelle la fonction structure puis le menu
 *
-* \param tableau_vols est un tableau et nombre_vols est un entier
+* \param 
 * \return 0 par convention
 * \post rien
 */
 int main()
 {
-    // Déclaration d'un tableau de structures de type Vol
+    // DÃ©claration d'un tableau de structures de type Vol
     struct Vol tableau_vols[MAX_FLIGHTS];
     int nombre_vols = 0;
     int nombre_passagers = 0;
 
-    // Charger les données à partir du CSV
+    // Charger les donnÃ©es Ã  partir du CSV
     structure(tableau_vols, &nombre_vols);
-
-
-
-
 
     // Afficher le menu
     menu(tableau_vols, nombre_vols, nombre_passagers);
