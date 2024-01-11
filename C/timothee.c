@@ -1,7 +1,7 @@
 /**
  * \file     thimothee.c
- * \brief
- * \author   Timothée Razafindranary
+ * \brief   
+ * \author   Timothe Razafindranary
  * \version  0.1
  * \date     19/12/23
  */
@@ -12,14 +12,12 @@
 
 
 /**
-* \fn  afficherVolHeure(tableau_vols[],heure, nombre_vols)
-* \brief Afficher les vols dont l'heure de décollage est proche d'une heure donnée
-*
-* \param tableau_vols est un tableau, heure est un entier saisi et nombre_vols est un entier
-* \return rien
-* \post rien
+* \fn       afficherVolHeure(tableau_vols[],heure, nombre_vols)
+* \brief    Afficher les vols dont l'heure de dÃ©collage est proche d'une heure donnÃ©e
+* \param    tableau_vols est un tableau, heure est un entier saisi et nombre_vols est un entier
+* \return   rien
+* \post     rien
 */
-
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //Timothee
 {
     printf("====================================================================================================================================\n");
@@ -28,7 +26,7 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 
     for (int i = 0; i < nombre_vols; i++)
     {
-        // Vérifier si l'heure de décollage est proche de l'heure spécifiée
+        // Vrifier si l'heure de dcollage est proche de l'heure spcifie
         if ((tableau_vols[i].heure_decollage >= heure - 100) && (tableau_vols[i].heure_decollage <= heure + 100))
         {
             printf("| %-6d | %-22s | %-22s | %-7d | %-11d | %-11d | %-10d | %-19d | %-18d | %-15d | %-18s | %-17d |\n",
@@ -163,13 +161,12 @@ void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 
 /**
 * \fn  opti(struct Vol tableau_vols[], int nombre_vols)
-* \brief Recupere les vols en retard et indique a quel heure ils peuvent décoller
+* \brief Recupere les vols en retard et indique a quel heure ils peuvent dcoller
 *
 * \param tableau_vols est un tableau et nombre_vols est un entier
 * \return rien
 * \post rien
 */
-
 void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     char heure[50] = "a l'heure";
