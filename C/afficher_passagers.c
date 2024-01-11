@@ -1,6 +1,6 @@
 /**
  * \file     afficher_passagers.c
- * \brief    ensemble des fonctions pour afficher le tableau des passagers d'un embarquement 
+ * \brief    ensemble des fonctions pour afficher le tableau des passagers d'un embarquement
  * \author   Tom FRUMY et Enzo SACCONE
  * \version  0.1
  * \date     19/12/23
@@ -75,7 +75,7 @@ void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
 */
 int estMoins12ans(struct Passager passager)
 {
-    // Supposons que nous sommes en 2024 (vous pouvez ajuster cela en fonction de l'anne actuelle)
+    // Supposons que nous sommes en 2024
     int age = 2024 - passager.annee_naissance;
 
     // Vrifier si le passager a moins de 12 ans
@@ -92,7 +92,7 @@ int estMoins12ans(struct Passager passager)
 */
 int estPlus12ans(struct Passager passager)
 {
-    // Supposons que nous sommes en 2024 (vous pouvez ajuster cela en fonction de l'anne actuelle)
+    // Supposons que nous sommes en 2024
     int age = 2024 - passager.annee_naissance;
 
     // Vrifier si le passager a moins de 12 ans
