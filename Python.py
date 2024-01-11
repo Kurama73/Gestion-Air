@@ -64,14 +64,15 @@ while i < 5000:
 
 
 
-"""
-:entrée/sortie tab: int
-:pré-cond: len(tab) >= 1
-:sortie compteur: int
-:post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche et 
-trier les éléments d'un tableau en sélectionnant un par un les éléments du tableau, du plus petit au plus grand.
-"""
+
 def tri_selection(tab):
+    """
+    :entrée/sortie tab: int
+    :pré-cond: len(tab) >= 1
+    :sortie compteur: int
+    :post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche et 
+    trier les éléments d'un tableau en sélectionnant un par un les éléments du tableau, du plus petit au plus grand.
+    """
     compteur = 0
     i = 0
     j = 0
@@ -276,14 +277,15 @@ def recherche_dicho(tab:[int], e:int):
 
 
 
-"""
-:entrée/sortie tab: [int]
-:entrée valeur_recherchee: int
-:pré-cond:
-:sortie compteur: int 
-:post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche
-"""
+
 def recherche(tab, valeur_recherchee):
+    """
+    :entrée/sortie tab: [int]
+    :entrée valeur_recherchee: int
+    :pré-cond: ∀i ∈ [0..len(tab)-2], tab[i] <= tab[i+1] 
+    :sortie compteur: int 
+    :post-cond: ajouter +1 pour chaque operateur utiliser durant la recherche
+    """
     tri_fusion(tab)
     compteur = 0
     i = 0
