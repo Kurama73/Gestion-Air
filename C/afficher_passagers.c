@@ -21,19 +21,19 @@ void afficherPassagersMoins12ans(struct Vol tableau_vols[], int numero_vol)
 {
 
 
-    for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
+    for (int i = 0; i < tableau_vols[numero_vol].nombre_passagers; i++)
     {
         // Vérifier si le passager a moins de 12 ans
-        if (estMoins12ans(tableau_vols[numero_vol - 1].passagers[i]))
+        if (estMoins12ans(tableau_vols[numero_vol].passagers[i]))
         {
             printf("| %-18s | %-18s | %02d/%02d/%4d        | %-5d | %-11.2f |\n",
-                   tableau_vols[numero_vol - 1].passagers[i].nom,
-                   tableau_vols[numero_vol - 1].passagers[i].prenom,
-                   tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].mois_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].annee_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].numero_siege,
-                   tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+                   tableau_vols[numero_vol].passagers[i].nom,
+                   tableau_vols[numero_vol].passagers[i].prenom,
+                   tableau_vols[numero_vol].passagers[i].jour_naissance,
+                   tableau_vols[numero_vol].passagers[i].mois_naissance,
+                   tableau_vols[numero_vol].passagers[i].annee_naissance,
+                   tableau_vols[numero_vol].passagers[i].numero_siege,
+                   tableau_vols[numero_vol].passagers[i].prix_billet);
         }
     }
 }
@@ -50,19 +50,19 @@ void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
 {
 
 
-    for (int i = 0; i < tableau_vols[numero_vol - 1].nombre_passagers; i++)
+    for (int i = 0; i < tableau_vols[numero_vol].nombre_passagers; i++)
     {
         // Vérifier si le passager a moins de 12 ans
-        if (estPlus12ans(tableau_vols[numero_vol - 1].passagers[i]))
+        if (estPlus12ans(tableau_vols[numero_vol].passagers[i]))
         {
             printf("| %-18s | %-18s | %02d/%02d/%4d        | %-5d | %-11.2f |\n",
-                   tableau_vols[numero_vol - 1].passagers[i].nom,
-                   tableau_vols[numero_vol - 1].passagers[i].prenom,
-                   tableau_vols[numero_vol - 1].passagers[i].jour_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].mois_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].annee_naissance,
-                   tableau_vols[numero_vol - 1].passagers[i].numero_siege,
-                   tableau_vols[numero_vol - 1].passagers[i].prix_billet);
+                   tableau_vols[numero_vol].passagers[i].nom,
+                   tableau_vols[numero_vol].passagers[i].prenom,
+                   tableau_vols[numero_vol].passagers[i].jour_naissance,
+                   tableau_vols[numero_vol].passagers[i].mois_naissance,
+                   tableau_vols[numero_vol].passagers[i].annee_naissance,
+                   tableau_vols[numero_vol].passagers[i].numero_siege,
+                   tableau_vols[numero_vol].passagers[i].prix_billet);
         }
     }
 }

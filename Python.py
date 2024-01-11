@@ -41,7 +41,7 @@ i = 0
 while i < 10:
     j = 0
     while j < 10:
-        tab_10[j].append(random.randint(0, 100))
+        tab_10[j].append(random.randint(0, 5000))
         j = j + 1
     i = i + 1
 
@@ -49,7 +49,7 @@ i = 0
 while i < 500:
     j = 0
     while j < 10:
-        tab_500[j].append(random.randint(0, 100))
+        tab_500[j].append(random.randint(0, 5000))
         j = j + 1
     i = i + 1
 
@@ -57,11 +57,18 @@ i = 0
 while i < 5000:
     j = 0
     while j < 10:
-        tab_5000[j].append(random.randint(0, 100))
+        tab_5000[j].append(random.randint(0, 5000))
         j = j + 1
     i = i + 1
 
 
+
+
+"""
+:entrée/sortie tab: int
+:pré-cond:
+:post-cond:
+"""
 def tri_selection(tab):
     compteur = 0
     i = 0
@@ -85,9 +92,17 @@ def tri_selection(tab):
         i = i + 1
         compteur = compteur + 5
     compteur = compteur + 2
-    print(f"Nombre d'operations elementaires du tri par selection : {compteur}")
     return compteur
 
+
+
+"""
+:entrée/sortie 
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
 def copie(tab1, tab2):
     compteur = 0
     n = len(tab1)
@@ -100,6 +115,17 @@ def copie(tab1, tab2):
     compteur = compteur + 1
     return (compteur)
         
+
+
+
+
+"""
+:entrée/sortie
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
 def interclassement(left, right, tab):
     compteur = 0
     i = j = k = 0
@@ -131,6 +157,16 @@ def interclassement(left, right, tab):
     compteur = compteur + 1
     return compteur
 
+
+
+
+"""
+:entrée/sortie tab: [ind]
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
 def tri_fusion(tab):
     compteur = 0
     n = len(tab)
@@ -158,6 +194,16 @@ def tri_fusion(tab):
         compteur = compteur + compteur1 
     return(compteur)
 
+
+
+
+"""
+:entrée/sortie
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
 def trie_bulle(tab):
     compteur = 0
     n = len(tab)
@@ -182,16 +228,27 @@ def trie_bulle(tab):
         compteur = compteur + 4
     return compteur
 
-def recherche_dicho(tab:[int],e:int):
-    compteur=0
-    deb=0
-    fin=len(tab)-1
+
+
+
+"""
+:entrée/sortie
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
+def recherche_dicho(tab:[int], e:int):
+    tri_fusion(tab)
+    compteur = 0
+    deb = 0
+    fin = len(tab) - 1
     ind = -1
 
     compteur = 5 + compteur
 
-    while deb < fin:
-        millieu = (fin + deb) //2
+    while deb <= fin:
+        millieu = (fin + deb) // 2
 
         compteur = 4 + compteur
 
@@ -207,44 +264,93 @@ def recherche_dicho(tab:[int],e:int):
     compteur = compteur + 1
     return compteur
 
-def recherche(tab, ind):
-    compteur=0
-    a = ind
-    compteur = compteur + 1
+
+
+
+"""
+:entrée/sortie
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
+def recherche(tab, valeur_recherchee):
+    tri_fusion(tab)
+    compteur = 0
     i = 0
-    compteur = compteur + 1
     n = len(tab)
-    compteur = compteur + 1
-    ind = -1  
-    compteur = compteur + 1
+    ind = -1
+
+    compteur += 4  # Initialisation des variables
 
     while i < n:
-        compteur = compteur + 1
-        if tab[i] == a:
-            compteur = compteur + 1
+        compteur += 1
+        if tab[i] == valeur_recherchee:
             ind = i
-            compteur = compteur + 1
-            break 
+            compteur += 2  # Assignation et break
+            break
         else:
             i += 1
-            compteur = compteur + 2
-    compteur = compteur + 1
+            compteur += 2  # Incrémentation de i et else
 
-    if ind != -1:
-        compteur = compteur + 1
-        print(a, "se trouve en premier à l'indice : ", ind)
-        compteur = compteur + 1
-    else:
-        print(a, "n'est pas présent dans le tableau.")
-        compteur = compteur + 1
+    compteur += 1  # Sortie de la boucle
+
+#   if ind != -1:
+#       print(valeur_recherchee, "se trouve en premier à l'indice:", ind)
+#    
+#   else:
+#       print(valeur_recherchee, "n'est pas présent dans le tableau.")
+#        
     return compteur
 
 
 
 
+"""
+:entrée/sortie
+:entrée
+:pré-cond:
+:sortie
+:post-cond:
+"""
+def recherche_dicho_recursive(tab, e):
+    tri_fusion(tab)
+    n = len(tab)
+    compteur = 0  # Initialisation du compteur
+
+    compteur += 1  # Opération de longueur du tableau
+    if n == 0:
+        return compteur  # Retourne le compteur si le tableau est vide
+
+    compteur += 1
+
+    mil = n // 2
+    compteur += 2
+    if tab[mil] == e:
+        return compteur  # Retourne le compteur si l'élément est trouvé
+
+    else:
+        compteur += 1
+        if tab[mil] > e:
+            compteur += recherche_dicho_recursive(tab[:mil], e)  # Recherche dans la moitié gauche
+
+        else:
+            compteur_inf = recherche_dicho_recursive(tab[mil + 1:], e)  # Recherche dans la moitié droite
+            compteur += compteur_inf
+            compteur += 1
+            if compteur_inf != 0:
+                compteur += 1
+            # Retourne le compteur seulement (pas de déballage du résultat)
+            return compteur
 
 
 
+
+
+
+
+
+print("TRI SELECTION :")
 print("tab_10 : ")
 calcul = 0
 i = 0
@@ -268,45 +374,14 @@ while i < 10:
     calcul = calcul + tri_selection(tab_5000[i])
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
-   
 
 
 
+print("")
 
 
 
-
-print("tab_10 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche_dicho(tab_10[i], 0)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_500 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche_dicho(tab_500[i], 0)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-print("tab_5000 : ")
-calcul = 0
-i = 0
-while i < 10:
-    calcul = calcul + recherche_dicho(tab_5000[i], 0)
-    i = i + 1
-print(f"Moyenne = {calcul / 10}")
-
-
-
-
-
-
-
-
+print("TRI FUSION :")
 print("tab_10 : ")
 calcul = 0
 i = 0
@@ -334,11 +409,12 @@ print(f"Moyenne = {calcul / 10}")
 
 
 
+print("")
 
 
 
 
-
+print("TRI BULLE :")
 print("tab_10 : ")
 calcul = 0
 i = 0
@@ -366,14 +442,17 @@ print(f"Moyenne = {calcul / 10}")
 
 
 
+print("")
 
 
 
+valeur_recherchee = (5000)
+print("RECHERCHE :")
 print("tab_10 : ")
 calcul = 0
 i = 0
 while i < 10:
-    calcul = calcul + recherche(tab_10[i], 35)
+    calcul = calcul + recherche(tab_10[i], valeur_recherchee)
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
 
@@ -381,7 +460,7 @@ print("tab_500 : ")
 calcul = 0
 i = 0
 while i < 10:
-    calcul = calcul + recherche(tab_500[i],35)
+    calcul = calcul + recherche(tab_500[i], valeur_recherchee)
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
 
@@ -389,6 +468,84 @@ print("tab_5000 : ")
 calcul = 0
 i = 0
 while i < 10:
-    calcul = calcul + recherche(tab_5000[i],35)
+    calcul = calcul + recherche(tab_5000[i], valeur_recherchee)
     i = i + 1
 print(f"Moyenne = {calcul / 10}")
+
+
+
+print("")
+
+
+
+print("RECHERCHE DICHO :")
+print("tab_10 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_10[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_500 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_500[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_5000 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho(tab_5000[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+
+
+
+print("")
+
+
+
+print("RECHERCHE DICHO REC :")
+print("tab_10 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho_recursive(tab_10[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_500 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho_recursive(tab_500[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+print("tab_5000 : ")
+calcul = 0
+i = 0
+while i < 10:
+    calcul = calcul + recherche_dicho_recursive(tab_5000[i], valeur_recherchee)
+    i = i + 1
+print(f"Moyenne = {calcul / 10}")
+
+
+
+
+print("")
+print("")
+print("")
+print("")
+
+
+
+
+print("Donc pour les algos de tri il faudra utiliser le tri fusion qui est enormement plus efficace que le tri selection et le tri à bulle")
+print("")
+print("Pour les recherches il faudra utiliser la recherche dichotomique recursive qui est légerement plus efficace pour un faible nombre de valeur mais encore plus pour un grand nombre de valeur par rapport à la recherche classique")

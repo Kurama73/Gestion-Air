@@ -28,7 +28,7 @@ void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
     }while (numero_vol < 1 || numero_vol > MAX_FLIGHTS);
 
         afficherPassagers_entete(numero_vol);
-        tri_prix(tableau_vols[numero_vol - 1].passagers, tableau_vols[numero_vol - 1].nombre_passagers);
+        tri_prix(tableau_vols[numero_vol].passagers, tableau_vols[numero_vol].nombre_passagers);
         afficherPassagersMoins12ans(tableau_vols,numero_vol);
         afficherPassagersPlus12ans(tableau_vols, numero_vol);
 }

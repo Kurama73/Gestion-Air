@@ -12,27 +12,28 @@
 // Charger les données depuis le CSV
 void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
 {
+    char nom_fic[100]; // Allouer de l'espace pour le nom du fichier
     char ligne[1000];
-    char *nom_fichier = "data_vols.csv";
+    char *nom_fichier;
+    // Allocation de mémoire pour le nom du fichier
+    nom_fichier = (char *)malloc(100 * sizeof(char));
 
-    // Ouverture du fichier CSV en mode lecture
-    FILE *pt_fichier = fopen(nom_fichier, "r");
-
-
-    // Gestion d'une erreur d'ouverture du fichier
-    if (pt_fichier == NULL)
+    // Vérifier si l'allocation de mémoire a réussi
+    if (nom_fichier == NULL)
     {
-        printf("\nOuverture de %s impossible", nom_fichier);
+        printf("Erreur d'allocation de mémoire.\n");
         exit(1);
     }
 
+    FILE *pt_fichier;
 
-    // Ignorer la première ligne du fichier (en-tête)
-    if (fgets(ligne, sizeof(ligne), pt_fichier) == NULL)
+    do
     {
-        fclose(pt_fichier);
-        exit(1);
-    }
+        printf("Choisissez un fichier : ");
+        scanf("%s", nom_fic);
+        strncpy(nom_fichier, nom_fic, sizeof(nom_fic));
+        pt_fichier = fopen(nom_fichier, "r");
+    } while (pt_fichier == NULL);
 
 
     // Lecture du fichier ligne par ligne
@@ -86,5 +87,5 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
     // Fermeture du fichier après lecture
     fclose(pt_fichier);
 
-
+free(nom_fichier);
 }
