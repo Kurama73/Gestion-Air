@@ -1,6 +1,6 @@
 /**
  * \file     structure.c
- * \brief
+ * \brief    Fonction structure
  * \author   Tom FRUMY
  * \version  0.1
  * \date     19/12/23
@@ -9,19 +9,28 @@
 
 #include "main.h"
 
-// Charger les données depuis le CSV
+
+/**
+* \fn       structure(struct Vol tableau_vols[], int *nombre_vols)
+* \brief    Extrait le contenu du fichier csv dans un tableau de structure
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
+*/
+
+// Charger les donnes depuis le CSV
 void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
 {
     char nom_fic[100]; // Allouer de l'espace pour le nom du fichier
     char ligne[1000];
     char *nom_fichier;
-    // Allocation de mémoire pour le nom du fichier
+    // Allocation de mmoire pour le nom du fichier
     nom_fichier = (char *)malloc(100 * sizeof(char));
 
-    // Vérifier si l'allocation de mémoire a réussi
+    // Vrifier si l'allocation de mmoire a russi
     if (nom_fichier == NULL)
     {
-        printf("Erreur d'allocation de mémoire.\n");
+        printf("Erreur d'allocation de mmoire.\n");
         exit(1);
     }
 
@@ -41,7 +50,7 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
     {
         char liste_passagers[1000];
 
-        // Utilisation de sscanf pour extraire les données de la ligne du CSV
+        // Utilisation de sscanf pour extraire les donnes de la ligne du CSV
         sscanf(ligne, "%d,%29[^,],%29[^,],%d,%d,%d,%d,%d,%d,%d,%19[^,],\"%999[^\"]\"",
                &tableau_vols[*nombre_vols].numero_vol,
                tableau_vols[*nombre_vols].compagnie,
@@ -80,11 +89,11 @@ void structure(struct Vol tableau_vols[], int *nombre_vols) //TOM
         // Enregistrement du nombre de passagers dans la structure Vol
         tableau_vols[*nombre_vols].nombre_passagers = i;
 
-        // Incrémentation du nombre de vols
+        // Incrmentation du nombre de vols
         (*nombre_vols)++;
     }
 
-    // Fermeture du fichier après lecture
+    // Fermeture du fichier aprs lecture
     fclose(pt_fichier);
 
 free(nom_fichier);

@@ -1,6 +1,6 @@
 /**
  * \file     enzo.c
- * \brief
+ * \brief    Ensemble des fonctions de Enzo
  * \author   Enzo Saccone
  * \version  0.1
  * \date     19/12/23
@@ -10,14 +10,13 @@
 #include "main.h"
 
 /**
-* \fn  panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
-* \brief affiche les passagers en fonction du vol choisi
+* \fn       panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
+* \brief    affiche les passagers en fonction du vol choisi
 *
-* \param tableau_vols est un tableau et nombre_vols est un entier
-* \return rien
-* \post rien
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
 */
-
 void panneau_passagerp(struct Vol tableau_vols[], int nombre_vols)
 {
     int numero_vol;
