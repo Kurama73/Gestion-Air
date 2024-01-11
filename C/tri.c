@@ -1,6 +1,6 @@
 /**
  * \file     tri_selection.c
- * \brief
+ * \brief    Ensemble des fonctions de tri
  * \author   Tom FRUMY et Enzo SACCONE
  * \version  0.1
  * \date     19/12/23
@@ -9,6 +9,13 @@
 
 #include "main.h"
 
+/**
+* \fn       interclassement_vol(struct Vol tableau_volsA[], const int nombre_volsA, struct Vol tableau_volsB[], const int nombre_volsB)
+* \brief    Fonction interclassement pour tri_vol
+* \param    tableau_volsA/B sont des tableaux, nombre_volsA/B sont des entiers
+* \return   rien
+* \post     rien
+*/
 void interclassement_vol(struct Vol tableau_volsA[], const int nombre_volsA, struct Vol tableau_volsB[], const int nombre_volsB)
 {
     int i = 0, j = 0, k = 0;
@@ -54,7 +61,14 @@ void interclassement_vol(struct Vol tableau_volsA[], const int nombre_volsA, str
     free(tab_final);
 }
 
-// Fonction de tri fusion pour les vols par numéro de vol
+
+/**
+* \fn       tri_vol(struct Vol tableau_vols[], const int nombre_vols)
+* \brief    Fonction de tri fusion pour les vols par numéro de vol
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
+*/
 void tri_vol(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
@@ -75,8 +89,13 @@ void tri_vol(struct Vol tableau_vols[], const int nombre_vols)
 
 
 
-
-// Fonction de fusion pour le tri fusion des vols par heure de décollage
+/**
+* \fn       interclassement_vol(struct Vol tableau_volsA[], const int nombre_volsA, struct Vol tableau_volsB[], const int nombre_volsB)
+* \brief    Fonction interclassement pour tri_heure
+* \param    tableau_volsA/B sont des tableaux, nombre_volsA/B sont des entiers
+* \return   rien
+* \post     rien
+*/
 void interclassement_heure(struct Vol tableau_volsA[], const int nombre_volsA, struct Vol tableau_volsB[], const int nombre_volsB)
 {
     int i = 0, j = 0, k = 0;
@@ -122,7 +141,14 @@ void interclassement_heure(struct Vol tableau_volsA[], const int nombre_volsA, s
     free(tab_final);
 }
 
-// Fonction de tri fusion pour les vols par heure de décollage
+
+/**
+* \fn       tri_heure(struct Vol tableau_vols[], const int nombre_vols)
+* \brief    Fonction de tri fusion pour les vols par heure de décollage
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
+*/
 void tri_heure(struct Vol tableau_vols[], const int nombre_vols)
 {
     if (nombre_vols > 1)
@@ -142,7 +168,13 @@ void tri_heure(struct Vol tableau_vols[], const int nombre_vols)
 }
 
 
-// TODO enzo
+/**
+* \fn       interclassement_prix(struct Passager tableau_passagersA[], const int nombre_passagersA, struct Passager tableau_passagersB[], const int nombre_passagersB)
+* \brief    Fonction interclassement pour tri_prix
+* \param    tableau_passagersA/B sont des tableaux, nombre_passagersA/B sont des entiers
+* \return   rien
+* \post     rien
+*/
 void interclassement_prix(struct Passager tableau_passagersA[], const int nombre_passagersA, struct Passager tableau_passagersB[], const int nombre_passagersB)
 {
     int i = 0, j = 0, k = 0;
@@ -195,7 +227,13 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
     //free(tab_final);
 }
 
-
+/**
+* \fn       tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
+* \brief    Fonction de tri fusion pour les passagers par prix
+* \param    tableau_passagers est un tableau et nombre_passagers est un entier
+* \return   rien
+* \post     rien
+*/
 void tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
 {
     if (nombre_passagers > 1)
