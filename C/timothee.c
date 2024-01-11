@@ -12,11 +12,12 @@
 
 
 /**
-* /fn  afficherVolHeure(tableau_vols[],heure, nombre_vols)
-* /brief Afficher les vols dont l'heure de décollage est proche d'une heure donnée
+* \fn  afficherVolHeure(tableau_vols[],heure, nombre_vols)
+* \brief Afficher les vols dont l'heure de décollage est proche d'une heure donnée
 *
-* /param tableau_vols est un tableau, heure est un entier saisi et nombre_vols est un entier
-* /return rien
+* \param tableau_vols est un tableau, heure est un entier saisi et nombre_vols est un entier
+* \return rien
+* \post rien
 */
 
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //Timothee
@@ -50,11 +51,12 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 
 
 /**
-* /fn  afficherDestination(tableau_vols[],heure, nombre_vols)
-* /brief Afficher les vols en fonction de la destination saisi
+* \fn  afficherDestination(struct Vol tableau_vols[], int nombre_vols)
+* \brief Afficher les vols en fonction de la compagnie saisi
 *
-* /param tableau_vols est un tableau et nombre_vols est un entier
-* /return rien
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return rien
+* \post rien
 */
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
@@ -92,6 +94,15 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
         printf("Aucun vol prevu pour cette destination.\n");
 }
 
+
+/**
+* \fn  afficherCompagnie(struct Vol tableau_vols[], int nombre_vols)
+* \brief Afficher les vols en fonction de la destination saisi
+*
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return rien
+* \post rien
+*/
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
     printf("Entrez la compagnie : ");
@@ -128,6 +139,15 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
         printf("Aucune compagnie de ce nom.\n");
 }
 
+
+/**
+* \fn  afficherTableauRetards(int *tableau_retard, int taille)
+* \brief Affiche tableau_retard
+*
+* \param tableau_retard est un tableau et taille est un entier
+* \return rien
+* \post rien
+*/
 void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 {
     for (int i = 0; i < taille; i++)
@@ -141,6 +161,14 @@ void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 
 
 
+/**
+* \fn  opti(struct Vol tableau_vols[], int nombre_vols)
+* \brief Recupere les vols en retard et indique a quel heure ils peuvent décoller
+*
+* \param tableau_vols est un tableau et nombre_vols est un entier
+* \return rien
+* \post rien
+*/
 
 void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
@@ -157,6 +185,7 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             taille_tableau_heure++;
         }
     }
+    // Le commentaire ci-dessous permet d'afficher tableau heure
 
     /*if (taille_tableau_heure > 0)
     {
