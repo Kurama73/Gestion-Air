@@ -1,6 +1,6 @@
 /**
  * \file     enzo.c
- * \brief
+ * \brief    Ensemble des fonctions de Enzo
  * \author   Enzo Saccone
  * \version  0.1
  * \date     19/12/23
