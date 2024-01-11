@@ -179,20 +179,15 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
 {
     int i = 0, j = 0, k = 0;
 
-    // TODO enzo nom explicites et propres
     const int sizetab = nombre_passagersA + nombre_passagersB;
-    // TODO enzo to test
-    struct Passager tab_final[sizetab];
-    //struct Passager *tab_final = (struct Passager *)malloc(sizetab * sizeof(struct Passager));
+
+    struct Passager *tab_final = (struct Passager *)malloc(sizetab * sizeof(struct Passager));
 
     while (i < nombre_passagersA && j < nombre_passagersB)
     {
         // TODO enzo tri du plus tot au plus tard et du plus cher au moins cher
        if ((tableau_passagersA[i].prix_billet > tableau_passagersB[j].prix_billet)
-            || (tableau_passagersA[i].prix_billet == tableau_passagersB[j].prix_billet && tableau_passagersA[i].nom >= tableau_passagersB[j].nom))
-
-        //if (tableau_passagersA[i].prix_billet >= tableau_passagersB[j].prix_billet)
-
+            || (tableau_passagersA[i].prix_billet == tableau_passagersB[j].prix_billet && strcmp(tableau_passagersA[i].nom, tableau_passagersB[j].nom) <= 0))
         {
             tab_final[k] = tableau_passagersA[i];
             i++;
@@ -224,7 +219,7 @@ void interclassement_prix(struct Passager tableau_passagersA[], const int nombre
         tableau_passagersA[i] = tab_final[i];
     }
 
-    //free(tab_final);
+    free(tab_final);
 }
 
 /**
@@ -241,9 +236,12 @@ void tri_prix(struct Passager tableau_passagers[], const int nombre_passagers)
         const int nombre_passagersA = nombre_passagers / 2;
         const int nombre_passagersB = nombre_passagers - nombre_passagersA;
 
+        // Tri de la première moitié
         tri_prix(tableau_passagers, nombre_passagersA);
+        // Tri de la deuxieme moitié
         tri_prix(tableau_passagers + nombre_passagersA, nombre_passagersB);
 
+        // Utilisation d'un tableau temporaire pour l'interclassement
         interclassement_prix(tableau_passagers, nombre_passagersA, tableau_passagers + nombre_passagersA, nombre_passagersB);
     }
 }
