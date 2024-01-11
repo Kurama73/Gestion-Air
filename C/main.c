@@ -1,6 +1,6 @@
 /**
  * \file     main.c
- * \brief
+ * \brief    fonction main servant à démarrer le programme
  * \author   Tom FRUMY
  * \version  0.1
  * \date     19/12/23
@@ -12,8 +12,6 @@
 /**
 * \fn int main()
 * \brief apelle la fonction structure puis le menu
-*
-* \param 
 * \return 0 par convention
 * \post rien
 */
