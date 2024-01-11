@@ -49,12 +49,12 @@ void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //T
 
 
 /**
-* \fn  afficherDestination(struct Vol tableau_vols[], int nombre_vols)
-* \brief Afficher les vols en fonction de la compagnie saisi
+* \fn       afficherDestination(struct Vol tableau_vols[], int nombre_vols)
+* \brief    Afficher les vols en fonction de la compagnie saisi
 *
-* \param tableau_vols est un tableau et nombre_vols est un entier
-* \return rien
-* \post rien
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
 */
 void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
@@ -94,12 +94,12 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
 
 
 /**
-* \fn  afficherCompagnie(struct Vol tableau_vols[], int nombre_vols)
-* \brief Afficher les vols en fonction de la destination saisi
+* \fn       afficherCompagnie(struct Vol tableau_vols[], int nombre_vols)
+* \brief    Afficher les vols en fonction de la destination saisi
 *
-* \param tableau_vols est un tableau et nombre_vols est un entier
-* \return rien
-* \post rien
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
 */
 void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
@@ -139,12 +139,12 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
 
 
 /**
-* \fn  afficherTableauRetards(int *tableau_retard, int taille)
-* \brief Affiche tableau_retard
+* \fn       afficherTableauRetards(int *tableau_retard, int taille)
+* \brief    Affiche tableau_retard
 *
-* \param tableau_retard est un tableau et taille est un entier
-* \return rien
-* \post rien
+* \param    tableau_retard est un tableau et taille est un entier
+* \return   rien
+* \post     rien
 */
 void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 {
@@ -160,12 +160,12 @@ void afficherTableauRetards(int *tableau_retard, int taille) //Timothee
 
 
 /**
-* \fn  opti(struct Vol tableau_vols[], int nombre_vols)
-* \brief Recupere les vols en retard et indique a quel heure ils peuvent dcoller
+* \fn       opti(struct Vol tableau_vols[], int nombre_vols)
+* \brief    Recupere les vols en retard et indique a quel heure ils peuvent dcoller
 *
-* \param tableau_vols est un tableau et nombre_vols est un entier
-* \return rien
-* \post rien
+* \param    tableau_vols est un tableau et nombre_vols est un entier
+* \return   rien
+* \post     rien
 */
 void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 {
