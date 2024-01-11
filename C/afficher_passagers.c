@@ -76,10 +76,10 @@ void afficherPassagersPlus12ans(struct Vol tableau_vols[], int numero_vol)
 int estMoins12ans(struct Passager passager)
 {
     // Supposons que nous sommes en 2024
-    int age = 2024 - passager.annee_naissance;
+    int age = DEUX_MILLE_VINGT_QUATRE - passager.annee_naissance;
 
     // Vrifier si le passager a moins de 12 ans
-    return age < 12;
+    return age < DOUZE;
 }
 
 /**
@@ -93,10 +93,10 @@ int estMoins12ans(struct Passager passager)
 int estPlus12ans(struct Passager passager)
 {
     // Supposons que nous sommes en 2024
-    int age = 2024 - passager.annee_naissance;
+    int age = DEUX_MILLE_VINGT_QUATRE - passager.annee_naissance;
 
     // Vrifier si le passager a moins de 12 ans
-    return age >= 12;
+    return age >= DOUZE;
 }
 
 /**

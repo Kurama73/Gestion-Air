@@ -217,7 +217,7 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
             int num = atoi(val);
 
             int volretard = tableau_vols[i].heure_decollage + num;
-            int surplus = volretard % 100;
+            int surplus = volretard % CENT;
 
             if (surplus >= 60)
             {
@@ -256,8 +256,8 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
 
             diff = tableau_heure[j + 1] - tableau_heure[j];
             avant = tableau_heure[j] + 5;
-            int ajuste1 = tableau_heure[j] % 100;
-            int ajuste2 = tableau_heure[j+1] % 100;
+            int ajuste1 = tableau_heure[j] % CENT;
+            int ajuste2 = tableau_heure[j+1] % CENT;
 
             if (ajuste1 > ajuste2)
             {

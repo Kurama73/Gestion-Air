@@ -25,6 +25,8 @@
 #define CINQ 5
 #define TROIS_CENT 300
 #define DEUX 2
+#define DOUZE 12
+#define DEUX_MILLE_VINGT_QUATRE 2024
 
 
 // Structure reprsentant un passager
