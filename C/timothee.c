@@ -21,7 +21,7 @@
 void afficherVolHeure(struct Vol tableau_vols[], int heure, int nombre_vols) //Timothee
 {
     printf("================================================================================================================================================================================================================\n");
-    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers\n");
     printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
@@ -65,7 +65,7 @@ void afficherDestination(struct Vol tableau_vols[], int nombre_vols) //Timothee
     size_t longueurDestination = strlen(destination);
 
     printf("================================================================================================================================================================================================================\n");
-    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers\n");
     printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
@@ -113,7 +113,7 @@ void afficherCompagnie(struct Vol tableau_vols[], int nombre_vols) //Timothee
     size_t longueurCompagnie = strlen(compagnie);
 
     printf("================================================================================================================================================================================================================\n");
-    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers\n");
     printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
@@ -212,7 +212,7 @@ void opti(struct Vol tableau_vols[], int nombre_vols) //Timothee
         if (!strncasecmp(tableau_vols[i].etat_vol, retard, longueurRetard))
         {
             char val[3];
-            strncpy(val, tableau_vols[i].etat_vol + 9, 2);
+            strncpy(val, tableau_vols[i].etat_vol + 9 , 2);
             val[2] = '\0';
             int num = atoi(val);
 
@@ -300,7 +300,7 @@ void afficherCompagnieDestination(struct Vol tableau_vols[], int nombre_vols)
     size_t longueurDestination = strlen(destination);
 
     printf("================================================================================================================================================================================================================\n");
-    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers");
+    printf("| No Vol | Compagnie              | Destination            | Comptoir | Heure debut | Heure fin   | Salle Emb. | Heure debut embarq. | Heure fin embarq. | Heure decollage | Etat vol          | Nombre passagers\n");
     printf("================================================================================================================================================================================================================\n");
     for (int i = 0; i < nombre_vols; i++)
     {
