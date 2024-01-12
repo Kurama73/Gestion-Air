@@ -89,30 +89,31 @@
 1704496387 source:c:\users\traza\documents\cours\c\gestionair\c\tri_selection.c
 	"main.h"
 
-1704630150 source:d:\gestionair\c\afficher_passagers.c
+1705013164 source:d:\gestionair\c\afficher_passagers.c
 	"main.h"
 
-1704628846 d:\gestionair\c\main.h
+1705013164 d:\gestionair\c\main.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<stdbool.h>
 
-1704630001 source:d:\gestionair\c\enzo.c
+1705013164 source:d:\gestionair\c\enzo.c
 	"main.h"
 
-1704624436 source:d:\gestionair\c\main.c
+1705013164 source:d:\gestionair\c\main.c
 	"main.h"
 
-1704629136 source:d:\gestionair\c\menu.c
+1705013164 source:d:\gestionair\c\menu.c
 	"main.h"
 
-1704629154 source:d:\gestionair\c\panneau_info.c
+1705013166 source:d:\gestionair\c\panneau_info.c
 	"main.h"
 
-1704624436 source:d:\gestionair\c\structure.c
+1705013166 source:d:\gestionair\c\structure.c
 	"main.h"
 
-1704624436 source:d:\gestionair\c\timothee.c
+1705013166 source:d:\gestionair\c\timothee.c
 	"main.h"
 
 1704629362 source:d:\gestionair\c\tri_selection.c
@@ -144,31 +145,31 @@
 1704490857 source:c:\users\totom\onedrive\cours\gestionair\c\tri_selection.c
 	"main.h"
 
-1704986854 source:g:\gestionair\c\afficher_passagers.c
+1705013164 source:g:\gestionair\c\afficher_passagers.c
 	"main.h"
 
-1704995628 g:\gestionair\c\main.h
+1705013164 g:\gestionair\c\main.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
 
-1704992946 source:g:\gestionair\c\enzo.c
+1705013164 source:g:\gestionair\c\enzo.c
 	"main.h"
 
-1704984956 source:g:\gestionair\c\main.c
+1705013164 source:g:\gestionair\c\main.c
 	"main.h"
 
-1704994020 source:g:\gestionair\c\menu.c
+1705013164 source:g:\gestionair\c\menu.c
 	"main.h"
 
-1704993546 source:g:\gestionair\c\panneau_info.c
+1705013166 source:g:\gestionair\c\panneau_info.c
 	"main.h"
 
-1704995584 source:g:\gestionair\c\structure.c
+1705013166 source:g:\gestionair\c\structure.c
 	"main.h"
 
-1704995492 source:g:\gestionair\c\timothee.c
+1705013166 source:g:\gestionair\c\timothee.c
 	"main.h"
 
 1704658170 source:g:\gestionair\c\tri_selection.c
@@ -223,7 +224,7 @@
 1704725154 source:e:\gestionair\c\tri.c
 	"main.h"
 
-1704993546 source:g:\gestionair\c\tri.c
+1705013166 source:g:\gestionair\c\tri.c
 	"main.h"
 
 1705011476 source:c:\users\traza\documents\cours\c\gestionair\c\tri.c
@@ -257,5 +258,8 @@
 	"main.h"
 
 1704925483 source:c:\users\traza\documents\cours\c\gestionair\test\gestionair\c\tri.c
+	"main.h"
+
+1705013166 source:d:\gestionair\c\tri.c
 	"main.h"
 

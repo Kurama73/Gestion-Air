@@ -553,6 +553,6 @@ print("")
 
 
 
-print("Donc pour les algos de tri il faudra utiliser le tri fusion qui est enormement plus efficace que le tri selection et le tri à bulle")
+print("Donc pour les algos de tri il faudra utiliser le tri fusion qui est enormement plus efficace que le tri selection et le tri à bulle. De plus ce tri permettra de trier la structure par heure, par numero de vols et par prix de maniere décroissant")
 print("")
 print("Pour les recherches il faudra utiliser la recherche dichotomique recursive qui est légerement plus efficace pour un faible nombre de valeur mais encore plus pour un grand nombre de valeur par rapport à la recherche classique")

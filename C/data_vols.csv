@@ -15,7 +15,7 @@ Numero de vol,Compagnie,Destination,Numero comptoir,Heure debut enregistrement,H
 19,Lufthansa,London,3,1043,1058,4,1115,1143,1204,Retarde (38 min),"Perret,Lacroix,11/09/1960,2,142.45"
 13,Emirates,Tokyo,5,1045,1110,2,1126,1147,1211,A l'heure,"Riviere,Huet,23/01/2007,9,727.57;Leroy,Pierre,10/01/2003,9,679.24;Petitpied,Jade,08/11/1980,7,956.41;Petit,Jean,14/04/2002,9,310.24;Schneider,Michel,11/06/1967,1,579.66"
 28,Lufthansa,New York,4,1143,1202,2,1222,1244,1302,A l'heure,"Faure,Benoit,02/03/1965,3,101.47;Martinez,Gerard,12/09/1989,4,640.7"
-1,Lufthansa,Paris,10,1134,1158,1,1220,1250,1319,Retarde (6 min),"Schneider,Roy,11/12/1979,1,888.85;Roche,Riviere,06/10/1971,1,234.27;Petit,Robert,10/07/1963,10,690.55;Roux,Carre,19/02/2013,4,455.99;Andre,Mercier,25/04/1992,2,733.64"
+1,Lufthansa,Paris,10,1134,1158,1,1220,1250,1319,Retarde (6 min),"Schneider,Roy,11/12/1979,1,888.85;Roche,Riviere,06/10/1971,1,888.85;Petit,Robert,10/07/1963,10,690.55;Roux,Carre,19/02/2013,4,455.99;Andre,Mercier,25/04/1992,2,733.64"
 39,Delta Airlines,New York,9,1229,1251,2,1310,1327,1345,A l'heure,"Riviere,Huet,05/09/1994,9,245.65;Rave,Julie,24/03/1979,1,756.4"
 12,Emirates,London,4,1224,1245,1,1315,1344,1410,A l'heure,"Rousseau,Michel,17/04/1957,7,268.96;Joly,Roux,17/07/2014,2,950.49;Faure,Benoit,21/05/1981,9,291.49;Schneider,Michel,02/12/2015,2,350.46;Schneider,Michel,12/07/2005,4,921.68;Meunier,Renard,06/04/1984,6,810.27"
 23,Lufthansa,Paris,5,1257,1316,4,1341,1404,1427,Retarde (46 min),"Fontaine,Bernard,13/09/1955,3,838.68;Roche,Riviere,10/11/1966,5,302.58;Razafindranary,Heloise,23/02/1957,9,304.48"
